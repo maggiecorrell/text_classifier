@@ -1,0 +1,9 @@
+venv
+.env
+.direnv
+.envrc
+*.pyc
+staticfiles
+.DS_Store
+__pycache__
+runtime.txt
