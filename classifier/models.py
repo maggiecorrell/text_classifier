@@ -1,5 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.pipeline import Pipeline
+import numpy as np
 
 
 class Classifier(models.Model):
@@ -12,8 +16,20 @@ class Classifier(models.Model):
     def train():
         pass
 
-    def predict():
-        pass
+    def predict(self, text):
+        X = []
+        y = []
+        bayes_pipe = Pipeline([('vectorizer', CountVectorizer()),
+                               ('multinom', MultinomialNB())])
+        corpus = self.sample_set.all()
+        for sample in corpus:
+            X.append(sample.text)
+            y.append(sample.category.name)
+        bayes_pipe.fit(X, y)
+        y_pred = bayes_pipe.predict(text)
+
+        return y_pred
+
 
 class Category(models.Model):
     name = models.CharField(max_length=200)
