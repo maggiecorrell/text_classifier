@@ -15,3 +15,23 @@
 .login_button{
   padding-top: 30px;
 }
+
+.input-group {
+  margin-top: 40px;
+}
+
+
+.card {
+  margin-top: 40px;
+  padding: 20px 20px 20px 20px;
+  border-color: #92CBFE;
+}
+
+.card .card-title {
+  text-align: center;
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }

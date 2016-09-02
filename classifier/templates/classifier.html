@@ -9,19 +9,20 @@
 {% block body %}
 <body>
   <div class="container">
-  <div class="input-group input-group-lg">
-  <span class="input-group-addon"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-
-  </span>
-  <input class="form-control" placeholder="Category Name">
-  </div>
-</div>
-
+    <div class="col-md-6">
+    <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Create!
+          </button>
+        </span>
+        <input type="text" class="form-control" placeholder="Classifier Name...">
+      </div></div></div>
+      
 <div class="container">
+<div class="card-columns">
   <div class="card">
     <div class="card-block">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h2 class="card-title">Feels</h2>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Happy</li>
@@ -29,5 +30,8 @@
       <li class="list-group-item">Angry</li>
     </ul>
   </div>
+</div>
+
+
 </body>
 {% endblock %}
