@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+
 
 <head>
 <title>
@@ -8,12 +10,12 @@
 {% block body %}
 <div class="container">
   <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-6" id="heading">
       <h1> Register for Peak Classifier </h1>
         <form method=POST>
             {% csrf_token %}
             {{ form.as_p }}
-          <button type='submit' class="btn btn-success">Create New Account</button>
+          <button type='submit' class="btn btn-primary">Create New Account</button>
         </form>
 
       <div class="login_button">
