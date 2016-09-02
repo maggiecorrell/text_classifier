@@ -25,6 +25,8 @@ class Classifier(models.Model):
         for sample in corpus:
             X.append(sample.text)
             y.append(sample.category.name)
+        X = np.array(X)
+        y = np.arry(y)
         bayes_pipe.fit(X, y)
         y_pred = bayes_pipe.predict(text)
 
