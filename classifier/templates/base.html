@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Peak Classifier</title>
+    <meta charset="utf-8"> {% block title %}{% endblock %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/simplex/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-inverse">
+        <a class="navbar-brand" href="{% url 'index' %}"><img class='pull-link-left' id='peak' src='{% static ' img/mountain-peak-logo-no-clouds-hi.png ' %}'></a>
+        <h3> Peak Classifier </h3>
+        <ul class="nav navbar-nav pull-xs-right">
+            {% if user.is_authenticated %}
+              <li class="nav-item-l"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
+              <li class="nav-item-l"><a class="nav-link" href="{% url 'profile_detail' user.pk %}">welcome, {{ user.username }}</a></li>
+            {% else %}
+            <li class="nav-item-l">
+                <a class="nav-link" href="{% url 'login' %}">log in</a></li>
+            <li class="nav-item">
+                <a class="nav-link-l" href="{% url 'register' %}">sign up<span class="sr-only">(current)</span></a>
+            </li>
+            {% endif %}
+        </ul>
+        </div>
+    </nav>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/style.js' %}"></script>
+
+
+    {% block body %}{% endblock %}
+</body>
+
+</html>
