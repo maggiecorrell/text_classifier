@@ -1,63 +1,76 @@
 from selenium import webdriver
+import unittest
 
-browser = webdriver.Firefox()
 
-# Gustav has heard about a cool new classification app.
-# He goes to check out the homepage.
-browser.get('http://localhost:8000')
+class NewVisitorTest(unittest.TestCase):
 
-# He notices the page title and header mention Peak Classifier
-assert 'Peak Classifier' in browser.title
+    def setUp(self):
+        self.browser = webdriver.Firefox()
+        self.browser.implicitly_wait(3)
 
-# He is invited to login or register and sees a welcome message
-# explaining the site
+    def tearDown(self):
+        self.browser.quit()
 
-# He clicks register and is redirected to a register page
+    def test_can_start_a_classifier_and_predict_with_it(self):
+        # Gustav has heard about a cool new classification app.
+        # He goes to check out the homepage.
+        self.browser.get('http://localhost:8000')
 
-# He inputs a username, an email, and a password and clicks register
-# and is redirected to his classifier page
+        # He notices the page title and header mention Peak Classifier
+        self.assertIn('Peak Classifier', self.browser.title)
+        self.fail('Finish the test!')
 
-# On the classifier page he is invited to Create a new classifier by a button
+        # He is invited to login or register and sees a welcome message
+        # explaining the site
 
-# Clicking the create new classifier button, he is redirected to a category page
+        # He clicks register and is redirected to a register page
 
-# On the category page, he sees an input field to name the classifier and names
-# it 'My Classifier'
+        # He inputs a username, an email, and a password and clicks register
+        # and is redirected to his classifier page
 
-# He sees another input field with an add category button next to it
+        # On the classifier page he is invited to Create a new classifier by a button
 
-# He types in 'happy' in the category and clicks add category. It adds it
-# to the page below the input field.
+        # Clicking the create new classifier button, he is redirected to a category page
 
-# He types in 'sad' and clicks add category and it adds another category
+        # On the category page, he sees an input field to name the classifier and names
+        # it 'My Classifier'
 
-# Satisfied he clicks 'Next' and is redirected to the text sample input page
+        # He sees another input field with an add category button next to it
 
-# Here he sees an explaintion asking him to 'Input text to train the model'
-# above a text input field along with a category dropdown box.
+        # He types in 'happy' in the category and clicks add category. It adds it
+        # to the page below the input field.
 
-# He enters in the text "I'm feeling happy today" and selects happy in the
-# drop down box. He then clicks "Submit" and the form is submitted.
+        # He types in 'sad' and clicks add category and it adds another category
 
-# He sees the page update with a counter now saying happy samples: 1
+        # Satisfied he clicks 'Next' and is redirected to the text sample input page
 
-# He enters in the text "Today is terrible" and selects sad in the dropdown
-# box. He then clicks submit.
+        # Here he sees an explaintion asking him to 'Input text to train the model'
+        # above a text input field along with a category dropdown box.
 
-# He sees the page update again and now the counter says
-# happy samples: 1, sad samples: 1
+        # He enters in the text "I'm feeling happy today" and selects happy in the
+        # drop down box. He then clicks "Submit" and the form is submitted.
 
-# Satisfied, he clicks "Done" and is redirected back to his Classifier page
+        # He sees the page update with a counter now saying happy samples: 1
 
-# Now he sees a new classifier on the page with the name "My Classifier" with two
-# links, "Add training data" and "Predict"
+        # He enters in the text "Today is terrible" and selects sad in the dropdown
+        # box. He then clicks submit.
 
-# He clicks "Predict" and is taken to a new page
+        # He sees the page update again and now the counter says
+        # happy samples: 1, sad samples: 1
 
-# He sees a text field where he types in "I'm happy to see you" and clicks submit
+        # Satisfied, he clicks "Done" and is redirected back to his Classifier page
 
-# The page returns a prediction
-## Can't guarantee the prediction will be happy due to the nature of modeling
+        # Now he sees a new classifier on the page with the name "My Classifier" with two
+        # links, "Add training data" and "Predict"
 
-# Satisfied, he closes the browser.
-browser.quit()
+        # He clicks "Predict" and is taken to a new page
+
+        # He sees a text field where he types in "I'm happy to see you" and clicks submit
+
+        # The page returns a prediction
+        ## Can't guarantee the prediction will be happy due to the nature of modeling
+
+        # Satisfied, he closes the browser.
+
+if __name__ == '__main__':
+    unittest.main()
