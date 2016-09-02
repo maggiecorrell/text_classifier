@@ -1,4 +1,10 @@
 
+<head>
+<title>
+{% block title %}Register for Peak{% endblock %}
+</title>
+</head>
+
 {% block body %}
 <div class="container">
   <div class="col-md-3"></div>
@@ -9,7 +15,7 @@
             {{ form.as_p }}
           <button type='submit' class="btn btn-success">Create New Account</button>
         </form>
-        
+
       <div class="login_button">
         <p> Already have an account?<a href="{% url 'login' %}" class="btn btn-link"> Log in.</a></p>
       </div>

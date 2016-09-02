@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^register/$', CreateView.as_view(
             template_name='registration/register.html',
             form_class=UserCreationForm,
-            success_url='/'
+            success_url='login/'
 
     ), name='register'),
     url(r'^login/$', login, name='login'),

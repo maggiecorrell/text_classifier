@@ -1,28 +1,37 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 
 <head>
-
+  <title>
+  {% block title %}Welcome to Peak{% endblock %}
+  </title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 </head>
 
 <body>
     <nav class="navbar navbar-dark bg-inverse">
-        <a class="navbar-brand" href="{% url '/' %}"><img class='pull-link-left' id='peak' src='{% static ' img/mountain-peak-logo-no-clouds-hi.png ' %}'></a>
-        <h3> Peak Classifier </h3>
+      <ul class="nav navbar-nav">
+        <a class="navbar-brand"><img id="peak" src='{% static 'img/mountain-peak-logo-no-clouds-hi.png' %}'></a>
+        <a class="navbar-brand" href="#">Peak Classifier</a>
+      </ul>
         <ul class="nav navbar-nav pull-xs-right">
             {% if user.is_authenticated %}
-              <li class="nav-item-l"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
-              <li class="nav-item-l"><a class="nav-link" href="{% url 'profile_detail' user.pk %}">welcome, {{ user.username }}</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'profile_detail' user.pk %}">welcome, {{ user.username }}</a></li>
             {% else %}
-            <li class="nav-item-l">
+            <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">log in</a></li>
             <li class="nav-item">
-                <a class="nav-link-l" href="{% url 'register' %}">sign up<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'register' %}">sign up<span class="sr-only">(current)</span></a>
             </li>
             {% endif %}
         </ul>
     </nav>
+    {% block body %}
+    {% endblock %}
 
 
 </body>
