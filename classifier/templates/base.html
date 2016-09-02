@@ -20,7 +20,7 @@
         <ul class="nav navbar-nav pull-xs-right">
             {% if user.is_authenticated %}
               <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'profile_detail' user.pk %}">welcome, {{ user.username }}</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">welcome, {{ user.username }}</a></li>
             {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">log in</a></li>
