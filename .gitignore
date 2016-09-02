@@ -6,4 +6,3 @@ venv
 staticfiles
 .DS_Store
 __pycache__
-runtime.txt
