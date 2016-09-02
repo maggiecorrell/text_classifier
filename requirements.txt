@@ -1,7 +1,10 @@
 dj-database-url==0.4.1
 Django==1.9.8
 gunicorn==19.6.0
+numpy==1.11.1
 psycopg2==2.6.2
 scikit-learn==0.17.1
+scipy==0.18.0
+selenium==2.53.6
 sklearn==0.0
 whitenoise==3.2
