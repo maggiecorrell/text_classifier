@@ -1,21 +1,20 @@
-{% extends 'base.html' %}
-
-<title>
-  {% block title %}Resgister{% endblock %}
-</title>
 
 {% block body %}
 <div class="container">
   <div class="col-md-3"></div>
     <div class="col-md-6">
-      <h1> Register with Peak Classifier </h1>
+      <h1> Register for Peak Classifier </h1>
         <form method=POST>
             {% csrf_token %}
             {{ form.as_p }}
           <button type='submit' class="btn btn-success">Create New Account</button>
         </form>
+        
+      <div class="login_button">
         <p> Already have an account?<a href="{% url 'login' %}" class="btn btn-link"> Log in.</a></p>
+      </div>
         </div>
     </div>
   </div>
+
 {% endblock %}
