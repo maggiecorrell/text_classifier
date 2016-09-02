@@ -31,7 +31,6 @@ class NewVisitorTest(unittest.TestCase):
         next(link.click() for link in links if link.text == 'sign up')
 
         # He inputs a username, an email, and a password and clicks register
-        # and is redirected to his classifier page
         inputbox = self.browser.find_element_by_id('id_username')
         inputbox.send_keys('gustav_55')
         inputbox = self.browser.find_element_by_id('id_password1')
@@ -39,11 +38,10 @@ class NewVisitorTest(unittest.TestCase):
         inputbox = self.browser.find_element_by_id('id_password2')
         inputbox.send_keys('iheartbees')
         self.browser.find_element_by_tag_name('button').click()
-        import time
-        time.sleep(5)
 
-
-        # On the classifier page he is invited to Create a new classifier by a button
+        # Gustav is redirected to the classifier page. # On the classifier
+        # page he is invited to Create a new classifier by a button
+        self.fail('Complete the test!')
 
         # Clicking the create new classifier button, he is redirected to a category page
 
