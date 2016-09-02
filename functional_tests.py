@@ -17,16 +17,31 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.get('http://localhost:8000')
 
         # He notices the page title and header mention Peak Classifier
-        self.assertIn('Peak Classifier', self.browser.title)
-        self.fail('Finish the test!')
+        self.assertIn('Welcome to Peak', self.browser.title)
 
         # He is invited to login or register and sees a welcome message
         # explaining the site
+        links = self.browser.find_elements_by_tag_name('a')
+        self.assertIn('log in', [link.text for link in links])
+        self.assertIn('sign up', [link.text for link in links])
+        header_text = self.browser.find_element_by_tag_name('h1').text
+        self.assertIn('Welcome', header_text)
 
         # He clicks register and is redirected to a register page
+        next(link.click() for link in links if link.text == 'sign up')
 
         # He inputs a username, an email, and a password and clicks register
         # and is redirected to his classifier page
+        inputbox = self.browser.find_element_by_id('id_username')
+        inputbox.send_keys('gustav_55')
+        inputbox = self.browser.find_element_by_id('id_password1')
+        inputbox.send_keys('iheartbees')
+        inputbox = self.browser.find_element_by_id('id_password2')
+        inputbox.send_keys('iheartbees')
+        self.browser.find_element_by_tag_name('button').click()
+        import time
+        time.sleep(5)
+
 
         # On the classifier page he is invited to Create a new classifier by a button
 
@@ -68,7 +83,7 @@ class NewVisitorTest(unittest.TestCase):
         # He sees a text field where he types in "I'm happy to see you" and clicks submit
 
         # The page returns a prediction
-        ## Can't guarantee the prediction will be happy due to the nature of modeling
+        # Can't guarantee the prediction will be happy due to the nature of modeling
 
         # Satisfied, he closes the browser.
 
