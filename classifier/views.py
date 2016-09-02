@@ -8,3 +8,6 @@ def index(request):
 
 def classifier(request):
     return render(request, 'classifier.html')
+
+def category(request):
+    return render(request, 'category.html')

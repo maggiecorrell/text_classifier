@@ -11,7 +11,9 @@
   margin-bottom: 30px;
 }
 
-
+.top {
+  padding-top: 40px;
+}
 .login_button{
   padding-top: 30px;
 }
@@ -27,11 +29,15 @@
   border-color: #92CBFE;
 }
 
+.card .card_category {
+  border-color: #92CBFE;
+  padding: 0px 0px 0px 0px;
+}
+
 .card .card-title {
   text-align: center;
 }
 
 .card-columns {
-  @include media-breakpoint-only(lg) {
-    column-count: 4;
+  column-count: 4;
   }

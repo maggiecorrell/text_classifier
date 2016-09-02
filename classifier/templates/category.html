@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+<head>
+  <title>
+    {% block title %}Classifier {% endblock %}
+  </title>
+</head>
+
+{% block body %}
+<body>
+  <div class="container">
+    <div class="col-md-6">
+      <h1 class="top"> Classifier Name here!! </h1>
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Category Name...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Create!
+          </button>
+        </span>
+      </div>
+
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Smile</li>
+          <li class="list-group-item">Cry</li>
+          <li class="list-group-item">Pizza</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+<div class="container">
+
+
+</div>
+
+
+</body>
+{% endblock %}

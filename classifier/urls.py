@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^login/$', login, name='login'),
     url(r'^logout/$', logout, {'next_page': '/login'}, name='logout'),
     url(r'^classifier/$', views.classifier, name='classifier'),
+    url(r'^category/$', views.category, name='category')
     ]
