@@ -1,27 +1,32 @@
 {% extends "base.html" %}
 
 <head>
-<title>
-{% block title %}Login to Peak{% endblock %}
-</title>
+    <title>
+        {% block title %}Login to Peak{% endblock %}
+    </title>
 </head>
 
-{% block body %} {% if form.errors %}
+{% block body %}
+<body>
+{% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
+
 <div class="container">
     <div class="col-md-3"></div>
-      <div class="col-md-6" id="heading">
+    <div class="col-md-6" id="heading">
         <form method="post" action="{% url 'login' %}">
             <h1> Login to Peak Classifier </h1>
+
             {% csrf_token %}
-            {{ form.as_p }}
+            {{form.as_p}}
+
             <input class="btn btn-primary" type="submit" value="Login" />
         </form>
         <div class="login_button">
-          <p> Don&#146;t already have an account?<a href="{% url 'register' %}" class="btn btn-link"> Create an account.</a></p>
+            <p> Don&#146;t already have an account?<a href="{% url 'register' %}" class="btn btn-link"> Create an account.</a></p>
         </div>
-      </div>
     </div>
-
+</div>
+</body>
 {% endblock %}
