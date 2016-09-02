@@ -15,16 +15,20 @@
 <div class="container">
     <div class="col-md-3"></div>
     <div class="col-md-6" id="heading">
-        <form method="post" action="{% url 'login' %}">
+        <form method="post" action="{% url 'login_user' %}">
             <h1> Login to Peak Classifier </h1>
 
             {% csrf_token %}
-            {{form.as_p}}
+            <label for="username">Username</label>
+            <p><input type="text" name="username" value="" required></p>
+            <label for="password">Password</label>
+            <p><input type="password" name="password" value="" required></p>
+
 
             <input class="btn btn-primary" type="submit" value="Login" />
         </form>
         <div class="login_button">
-            <p> Don&#146;t already have an account?<a href="{% url 'register' %}" class="btn btn-link"> Create an account.</a></p>
+            <p> Don&#146;t already have an account?<a href="{% url 'register_user' %}" class="btn btn-link"> Create an account.</a></p>
         </div>
     </div>
 </div>

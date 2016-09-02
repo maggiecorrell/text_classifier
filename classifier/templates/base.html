@@ -23,7 +23,7 @@
               <li class="nav-item"><a class="nav-link" href="#">welcome, {{ user.username }}</a></li>
             {% else %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">log in</a></li>
+                <a class="nav-link" href="{% url 'login_user' %}">log in</a></li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'register_user' %}">sign up</a>
             </li>

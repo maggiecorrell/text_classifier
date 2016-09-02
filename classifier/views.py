@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 
@@ -23,8 +23,21 @@ def register_user(request):
                                 password=uf.cleaned_data['password1'],
                                 )
             login(request, user)
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponseRedirect(reverse('classifier'))
     else:
         uf = UserCreationForm(prefix='user')
     context = {'userform': uf}
     return render(request, 'registration/register.html', context)
+
+
+def login_user(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('classifier'))
+        else:
+            return render(request, 'registration/login.html')
+    return render(request, 'registration/login.html')
