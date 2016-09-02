@@ -5,3 +5,6 @@ from django.contrib.auth.models import User
 
 def index(request):
     return render(request, 'index.html')
+
+def classifier(request):
+    return render(request, 'classifier.html')

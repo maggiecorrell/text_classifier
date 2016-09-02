@@ -7,6 +7,7 @@
 </head>
 
 {% block body %}
+<body>
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
@@ -16,7 +17,7 @@
     <div class="col-md-6" id="heading">
         <form method="post" action="{% url 'login' %}">
             <h1> Login to Peak Classifier </h1>
-            
+
             {% csrf_token %}
             {{form.as_p}}
 
@@ -27,5 +28,5 @@
         </div>
     </div>
 </div>
-
+</body>
 {% endblock %}
