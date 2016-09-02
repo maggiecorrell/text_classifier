@@ -24,55 +24,59 @@ class IndexPageTest(TestCase):
 def create_test_user():
     return User.objects.create_user('Jon', 'jon@test.com', 'jonpassword')
 
-# def create_test_classifier():
-#     first_classifier = Classifier()
-#     first_classifier.user = user
-#     first_classifier.name = 'First classifier'
-#     first_classifier.save()
+
+def create_test_classifier(user):
+    classifier = Classifier()
+    classifier.user = user
+    classifier.name = 'First classifier'
+    classifier.save()
+    return classifier
+
+
+def create_test_category(category_name):
+    category = Category()
+    category.name = category_name
+    category.save()
+    return category
+
+
+def create_test_sample(classifier, category, text):
+    sample = Sample()
+    sample.category = category
+    sample.classifier = classifier
+    sample.text = text
+    sample.save()
+    return sample
 
 
 class ClassifierModelTest(TestCase):
     def test_saving_and_retreiving_items(self):
-        user = create_test_user
-        first_classifier = Classifier()
-        first_classifier.user = user
-        first_classifier.name = 'First classifier'
-        first_classifier.save()
-
-        second_classifier = Classifier()
-        second_classifier.user = user
-        second_classifier.name = 'Second classifier'
-        second_classifier.save()
+        user = create_test_user()
+        create_test_classifier(user)
 
         saved_classifiers = Classifier.objects.all()
-        self.assertEqual(saved_classifiers.count(), 2)
+        self.assertEqual(saved_classifiers.count(), 1)
 
         first_saved_classifier = saved_classifiers[0]
-        second_saved_classifier = saved_classifiers[1]
         self.assertEqual(first_saved_classifier.name, 'First classifier')
-        self.assertEqual(second_saved_classifier.name, 'Second classifier')
 
-    # def test_train_classifier(self):
-    #     user = User.objects.create_user('Jon', 'jon@test.com', 'jonpassword')
-    #     classifier = Classifier()
-    #     classifier.user = user
-    #     classifier.name = 'First classifier'
-    #     classifier.save()
-    #     category = Category()
-    #     category.name = 'First category'
-    #     category.save()
-    #     sample = Sample()
-    #     sample.category = category
-    #     sample.classifier = classifier
-    #     sample.text = 'First input sample'
-    #     sample.save()
+    def test_train_classifier(self):
+        user = create_test_user()
+        classifier = create_test_classifier(user)
+        category1 = create_test_category('happy')
+        category2 = create_test_category('sad')
+        create_test_sample(classifier, category1, 'I feel happy today')
+        create_test_sample(classifier, category1, 'I am happy for you')
+        create_test_sample(classifier, category2, 'I feel sad today')
+        create_test_sample(classifier, category2, 'How sad is that?')
+
+        classifier.train()
+        self.assertEqual(classifier.pipeline.predict(['I am happy']), ['happy'])
 
 
 class CategoryModelTest(TestCase):
     def test_saving_and_retreiving_items(self):
-        category = Category()
-        category.name = 'First category'
-        category.save()
+        create_test_category('First category')
 
         saved_categories = Category.objects.all()
         self.assertEqual(saved_categories.count(), 1)
@@ -83,19 +87,10 @@ class CategoryModelTest(TestCase):
 
 class SampleModelTest(TestCase):
     def test_saving_and_retreiving_items(self):
-        user = User.objects.create_user('Jon', 'jon@test.com', 'jonpassword')
-        classifier = Classifier()
-        classifier.user = user
-        classifier.name = 'First classifier'
-        classifier.save()
-        category = Category()
-        category.name = 'First category'
-        category.save()
-        sample = Sample()
-        sample.category = category
-        sample.classifier = classifier
-        sample.text = 'First input sample'
-        sample.save()
+        user = create_test_user()
+        classifier = create_test_classifier(user)
+        category = create_test_category('First category')
+        create_test_sample(classifier, category, 'First input sample')
 
         saved_samples = Sample.objects.all()
         self.assertEqual(saved_samples.count(), 1)

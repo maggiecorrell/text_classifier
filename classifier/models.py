@@ -14,7 +14,7 @@ class Classifier(models.Model):
     def add_to_corpus():
         pass
 
-    def train(self, user):
+    def train(self):
         X = []
         y = []
         self.pipeline = Pipeline([('vectorizer', CountVectorizer()),
