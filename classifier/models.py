@@ -23,6 +23,8 @@ class Classifier(models.Model):
         for sample in corpus:
             X.append(sample.text)
             y.append(sample.category.name)
+        # X = np.array(X)
+        # y = np.arry(y)
         self.pipeline.fit(X, y)
         return
 
