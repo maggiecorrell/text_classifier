@@ -13,6 +13,7 @@
 <div class="card">
 <div class="form-group">
   <form method="post" action="">
+    {% csrf_token %}
     <input class="form-control form-control-lg" id="in1" type="text" placeholder="Enter training text for 'NAME OF CATEGORY'..."></input>
 <div class="a_right">
     <input class="btn btn-primary" type="submit">

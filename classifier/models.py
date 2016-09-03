@@ -40,6 +40,7 @@ class Category(models.Model):
     classifier = models.ForeignKey(Classifier)
     name = models.CharField(max_length=200)
 
+
 class Sample(models.Model):
     text = models.TextField()
     classifier = models.ForeignKey(Classifier)
