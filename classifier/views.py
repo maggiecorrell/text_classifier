@@ -36,6 +36,9 @@ def text_input(request):
     return render(request, 'text_input.html')
 
 
+def predict(request):
+    return render(request, 'predict.html')
+
 def register_user(request):
     if request.method == 'POST':
         uf = UserCreationForm(request.POST, prefix='user')

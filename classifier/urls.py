@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^logout/$', logout, {'next_page': '/login'}, name='logout'),
     url(r'^classifier/$', views.classifier, name='classifier'),
     url(r'^category/$', views.category, name='category'),
-    url(r'^text_input/$', views.text_input, name='text_input')
+    url(r'^text_input/$', views.text_input, name='text_input'),
+    url(r'^predict/$', views.predict, name='predict')
     ]
