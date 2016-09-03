@@ -14,7 +14,8 @@
 
 <div class="container">
     <div class="col-md-3"></div>
-    <div class="col-md-6" id="heading">
+    <div class="col-md-6">
+      <div class="center">
         <form method="post" class="form-control" action="{% url 'login_user' %}">
             <h1> Login to Peak Classifier </h1>
 
@@ -31,6 +32,7 @@
             <p> Don&#146;t already have an account?<a href="{% url 'register_user' %}" class="btn btn-link"> Create an account.</a></p>
         </div>
     </div>
+</div>
 </div>
 </body>
 {% endblock %}
