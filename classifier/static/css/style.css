@@ -1,16 +1,33 @@
+body {
+    margin:0;
+    padding:0;
+    background-color: #92CBFE;
+    background-size: cover;
+}
+
+*{
+  font-family: 'Arimo', sans-serif;
+}
+
 #peak {
   width: 30px;
   height: auto;
 }
 
-#nav {
-  margin-bottom: 25px;
+.mt_bg {
+  background-image: url(http://artist4hire.com/web/wallpapers/blue-mountains/2560x1600.jpg);
+  background-size: cover;
 }
 
 .h1 {
-  margin-bottom: 30px;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  font-family: Gill Sans Extrabold, sans-serif;
 }
 
+.top {
+  padding-top: 40px;
+}
 
 .login_button{
   padding-top: 30px;
@@ -25,7 +42,18 @@
 .card {
   margin-top: 40px;
   padding: 20px 20px 20px 20px;
-  border-color: #92CBFE;
+  border-color: #4D4D4D;
+  border-width: 2px;
+  background-color: #ECEEEF;
+}
+
+.list-group .list-group-flush {
+  border-color: #4D4D4D;
+  background-color: #ECEEEF;
+}
+.card .card_category {
+  border-color: #4D4D4D;
+  padding: 0px 0px 0px 0px;
 }
 
 .card .card-title {
@@ -33,6 +61,10 @@
 }
 
 .card-columns {
-  @include media-breakpoint-only(lg) {
-    column-count: 4;
+  column-count: 4;
   }
+
+#in1 {
+  Width = 100%;
+  height = auto
+}

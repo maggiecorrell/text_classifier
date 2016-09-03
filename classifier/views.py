@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 from .models import Classifier
 
@@ -25,6 +26,10 @@ def classifier(request):
         'classifiers': classifiers
     }
     return render(request, 'classifier.html', context)
+
+
+def category(request):
+    return render(request, 'category.html')
 
 
 def text_input(request):
