@@ -18,8 +18,10 @@ class Classifier(models.Model):
     def train(self):
         X = []
         y = []
-        self.pipeline = Pipeline([('vectorizer', CountVectorizer(ngram_range=(1, 3))),
-                                  ('feature_selection', VarianceThreshold(threshold=(.8*(1-.8)))),
+        self.pipeline = Pipeline([('vectorizer',
+                                   CountVectorizer(ngram_range=(1, 3))),
+                                  ('feature_selection',
+                                   VarianceThreshold(threshold=(.8*(1-.8)))),
                                   ('multinom', MultinomialNB())])
         corpus = self.sample_set.all()
         for sample in corpus:
@@ -28,7 +30,6 @@ class Classifier(models.Model):
         # X = np.array(X)
         # y = np.array(y)
         self.pipeline.fit(X, y)
-
 
     def predict(self, text):
         y_pred = self.pipeline.predict(text)
