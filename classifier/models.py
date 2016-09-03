@@ -34,9 +34,9 @@ class Classifier(models.Model):
 
 
 class Category(models.Model):
+    classifier = models.ForeignKey(Classifier)
     name = models.CharField(max_length=200)
 
 class Sample(models.Model):
     text = models.TextField()
-    category = models.ForeignKey(Category)
     classifier = models.ForeignKey(Classifier)

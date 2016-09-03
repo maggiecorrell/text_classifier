@@ -5,6 +5,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 
+from .models import Classifier
+
 
 def index(request):
     return render(request, 'index.html')
@@ -12,9 +14,17 @@ def index(request):
 
 @login_required
 def classifier(request):
+    user = request.user
     if request.method == 'POST':
-        print(request.POST)
-    return render(request, 'classifier.html')
+        classifier_name = request.POST.get('classifier-name', '')
+        if classifier_name:
+            classifier = Classifier(name=classifier_name, user=user)
+            classifier.save()
+    classifiers = Classifier.objects.filter(user=user)
+    context = {
+        'classifiers': classifiers
+    }
+    return render(request, 'classifier.html', context)
 
 
 def text_input(request):

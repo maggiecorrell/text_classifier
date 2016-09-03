@@ -31,11 +31,11 @@ class NewVisitorTest(unittest.TestCase):
         next(link.click() for link in links if link.text == 'sign up')
 
         # He inputs a username, an email, and a password and clicks register
-        inputbox = self.browser.find_element_by_id('id_username')
+        inputbox = self.browser.find_element_by_id('id_user-username')
         inputbox.send_keys('gustav_55')
-        inputbox = self.browser.find_element_by_id('id_password1')
+        inputbox = self.browser.find_element_by_id('id_user-password1')
         inputbox.send_keys('iheartbees')
-        inputbox = self.browser.find_element_by_id('id_password2')
+        inputbox = self.browser.find_element_by_id('id_user-password2')
         inputbox.send_keys('iheartbees')
         self.browser.find_element_by_tag_name('button').click()
 
