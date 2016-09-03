@@ -1,5 +1,12 @@
-html {
-  background-color: #0088CC;
+body {
+    margin:0;
+    padding:0;
+    background-color: #92CBFE;
+    background-size: cover;
+}
+
+*{
+  font-family: 'Arimo', sans-serif;
 }
 
 #peak {
@@ -7,14 +14,19 @@ html {
   height: auto;
 }
 
-#nav {
-  margin-bottom: 25px;
+.mt_bg {
+  background-image: url(http://artist4hire.com/web/wallpapers/blue-mountains/2560x1600.jpg);
+  background-size: cover;
 }
 
-.h1 {
-  margin-bottom: 30px;
+h1 {
+  padding-top: 40px;
+	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
 }
 
+.top {
+  padding-top: 40px;
+}
 
 .login_button{
   padding-top: 30px;
@@ -22,20 +34,66 @@ html {
 
 .input-group {
   margin-top: 40px;
+  text-align: center;
 }
 
 
 .card {
   margin-top: 40px;
   padding: 20px 20px 20px 20px;
-  border-color: #92CBFE;
+  border-color: #4D4D4D;
+  border-width: 2px;
+  background-color: #ECEEEF;
+}
+
+.list-group .list-group-flush {
+  border-color: #4D4D4D;
+  background-color: #ECEEEF;
+}
+.card .card_category {
+  border-color: #4D4D4D;
+  padding: 0px 0px 0px 0px;
 }
 
 .card .card-title {
   text-align: center;
 }
 
-.card-columns {
+/*.card-columns {
+  @include-media-breakpoint-only(xl) {
+    column-count: 4;
+  }
   @include media-breakpoint-only(lg) {
     column-count: 4;
   }
+  @include media-breakpoint-only(md) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(sm) {
+    column-count: 1;
+  }
+}*/
+
+#in1 {
+  Width = 100%;
+  height = auto
+}
+
+.form-group {
+: 15px;
+}
+
+h3 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.a_right {
+  text-align: right;
+  padding-top: 10px;
+}
+
+.center {
+  text-align: center;
+}

@@ -7,30 +7,50 @@
 </head>
 
 {% block body %}
+<br>
 <body>
   <div class="container">
-    <div class="col-md-6">
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="Classifier Name...">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">Create!
-          </button>
-        </span>
-      </div></div></div>
-
-<div class="container">
-<div class="card-columns">
-  <div class="card">
-    <div class="card-block">
-      <h2 class="card-title">Feels</h2>
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="text-xs-center"> Create a New Classifier</h3>
+        <div class="input-group">
+          <form class="form-inline" action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <input type="text" class="form-control" name="classifier-name" placeholder="Classifier Name...">
+            </div>
+            <button class="btn btn-primary" type="submit">Create!</button>
+          </form>
+        </div>
+      </div>
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Happy</li>
-      <li class="list-group-item">Sad</li>
-      <li class="list-group-item">Angry</li>
-    </ul>
+<br>
+<div class="container">
+  <h3 class="text-md-center">Classifiers you have created</h3>
+  <div class="card-columns">
+    {% for classifier in classifiers %}
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-title">{{ classifier.name }}</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          {% for category in classifier.category_set.all %}
+            <li class="list-group-item text-xs-center">{{ category.name }}</li>
+          {% endfor %}
+        </ul>
+        <div class="text-xs-center">
+          <div class="btn-group">
+            <a href="{% url 'category' %}"><button class="btn btn-secondary">Category</button></a>
+            <a href="#"><button class="btn btn-secondary">Sample</button></a>
+            <a href="#"><button class="btn btn-secondary">Predict</button></a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 </div>
+
 
 
 </body>

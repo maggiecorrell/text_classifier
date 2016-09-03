@@ -2,16 +2,17 @@
 {% load static %}
 {% block body %}
 
+<div class="mt_bg">
 <div class="container">
   <div class="jumbotron">
   <div class="container">
-    <h1 class="display-3">Welcome to Peak Classifier</h1>
+    <h1 class="display-3 text-xs-center">Welcome to Peak Classifier</h1>
     <p class="lead">
       Peak Classifier has the ability to analyze and predict text sentiment using
       Naive Bayes classification.  Users are able to customize the classifier
       to their own needs, whether they want language classification or
       the general feeling of a piece of text. The classifier can take in a
-      text fragment or an entire file(CSV formatted) and return the desired
+      text fragment or an entire file (CSV formatted) and return the desired
       response.
     </p>
     <hr class="m-y-2">
@@ -26,5 +27,6 @@
   </div>
   </div>
 </div>
+<div>
 
 {% endblock %}
