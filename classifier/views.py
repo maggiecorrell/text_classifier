@@ -22,9 +22,9 @@ def classifier(request, pk):
     if request.method == 'POST':
         classifier_name = request.POST.get('classifier-name', '')
         if classifier_name:
-            classifier = Classifier(name=classifier_name, user=pk)
+            classifier = Classifier(name=classifier_name, user=user)
             classifier.save()
-    classifiers = Classifier.objects.filter(user=pk)
+    classifiers = Classifier.objects.filter(user=user)
     context = {
         'classifiers': classifiers
     }
