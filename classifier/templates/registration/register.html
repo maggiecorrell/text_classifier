@@ -11,9 +11,12 @@
 <body>
 <div class="container">
   <div class="col-md-3"></div>
-    <div class="col-md-6" id="heading">
-      <h1> Register for Peak Classifier </h1>
+
+    <div class="col-md-6">
+<div class="center">
         <form method=POST>
+
+              <h1> Register for Peak Classifier </h1>
           {% csrf_token %}
           {% for field in userform %}
             <div class="fieldWrapper">
@@ -24,14 +27,15 @@
              {% endif %}
             </div>
           {% endfor %}
-          <button type='submit' class="btn btn-primary">Create New Account</button>
+       <button type='submit' class="btn btn-primary">Create New Account</button>
         </form>
 
       <div class="login_button">
-        <p> Already have an account?<a href="{% url 'login_user' %}" class="btn btn-link"> Log in.</a></p>
+   <p> Already have an account?<a href="{% url 'login_user' %}" class="btn btn-link"> Log in.</a></p></div>
       </div>
         </div>
     </div>
+
   </div>
 </body>
 {% endblock %}
