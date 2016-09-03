@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+<div class="container">
+<div class="card">
+<div class="form-group">
+  <label>Text Input:</label>
+  <form method="post" action="">
+    <textarea class="form" rows="4" cols="50" name="manual_input">
+    Enter text here...</textarea>
+    <input class="btn" type="submit">
+  </form>
+  <h3>Or</h3>
+  <input type="file" id="my_file">
+</div>
+</div>
+</div>
+
+{% endblock %}

@@ -17,6 +17,10 @@ def classifier(request):
     return render(request, 'classifier.html')
 
 
+def text_input(request):
+    return render(request, 'text_input.html')
+
+
 def register_user(request):
     if request.method == 'POST':
         uf = UserCreationForm(request.POST, prefix='user')
