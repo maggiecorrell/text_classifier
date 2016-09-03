@@ -14,13 +14,21 @@
     <div class="col-md-6" id="heading">
       <h1> Register for Peak Classifier </h1>
         <form method=POST>
-            {% csrf_token %}
-            {{ form.as_p }}
+          {% csrf_token %}
+          {% for field in userform %}
+            <div class="fieldWrapper">
+             {{ field.errors }}
+             {{ field.label_tag }}<br /> {{ field }}
+             {% if field.help_text %}
+               <p class="help">{{ field.help_text|safe }}</p>
+             {% endif %}
+            </div>
+          {% endfor %}
           <button type='submit' class="btn btn-primary">Create New Account</button>
         </form>
 
       <div class="login_button">
-        <p> Already have an account?<a href="{% url 'login' %}" class="btn btn-link"> Log in.</a></p>
+        <p> Already have an account?<a href="{% url 'login_user' %}" class="btn btn-link"> Log in.</a></p>
       </div>
         </div>
     </div>
