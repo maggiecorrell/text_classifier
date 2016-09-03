@@ -40,3 +40,7 @@ class Sample(models.Model):
     text = models.TextField()
     category = models.ForeignKey(Category)
     classifier = models.ForeignKey(Classifier)
+
+# class File_Upload(models.Model):
+#     classifer = models.OneToOneField(Classifier)
+#     text_body = models.TextField()

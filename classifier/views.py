@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from.forms import UploadFileForm
+import magic
 
 
 def index(request):
