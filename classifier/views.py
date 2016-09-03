@@ -42,10 +42,6 @@ def category(request, classifier_id):
         classifier = None
     if classifier not in classifiers:
         return HttpResponseRedirect(reverse('classifier', kwargs={'pk': user.pk}))
-    # user = request.user
-    # classifiers = Classifier.objects.filter(user=user)
-    # if user.pk != pk:
-    #
     # if request.method == 'POST':
     #     classifier_name = request.POST.get('classifier-name', '')
     #     if classifier_name:
@@ -53,7 +49,7 @@ def category(request, classifier_id):
     #         classifier.save()
     categories = Classifier.objects.get(id=classifier_id).category_set.all()
     context = {
-        # 'catagories': categories
+        'catagories': categories
     }
     return render(request, 'category.html', context)
 
