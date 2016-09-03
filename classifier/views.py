@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
@@ -9,7 +10,10 @@ def index(request):
     return render(request, 'index.html')
 
 
+@login_required
 def classifier(request):
+    if request.method == 'POST':
+        print(request.POST)
     return render(request, 'classifier.html')
 
 

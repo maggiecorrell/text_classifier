@@ -15,7 +15,7 @@
 <div class="container">
     <div class="col-md-3"></div>
     <div class="col-md-6" id="heading">
-        <form method="post" action="{% url 'login_user' %}">
+        <form method="post" class="form-control" action="{% url 'login_user' %}">
             <h1> Login to Peak Classifier </h1>
 
             {% csrf_token %}
