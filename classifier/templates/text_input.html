@@ -21,8 +21,14 @@
         <option>{{ category.name }}</option>
       {% endfor %}
     </select>
-    <div class="a_right">
+    <div class="text-xs-center">
       <input class="btn btn-primary" type="submit">
+    </div>
+  </form>
+  <form method="post" action="">
+    {% csrf_token %}
+    <div class="text-xs-center">
+      <button class="btn btn-primary" name="train" value="train">Train</button>
     </div>
   </form>
   <h3>OR</h3>

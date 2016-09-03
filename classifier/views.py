@@ -66,6 +66,10 @@ def text_input(request, classifier_id):
     if classifier not in classifiers:
         return HttpResponseRedirect(reverse('classifier', kwargs={'pk': user.pk}))
     if request.method == 'POST':
+        train = request.POST.get("train", "")
+        if train:
+            classifier.train()
+            return HttpResponseRedirect(reverse('predict', kwargs={'classifier_id': classifier_id}))
         category_name = request.POST.get('category', "")
         sample_text = request.POST.get('sample-text', "")
         if category_name and sample_text:
@@ -80,7 +84,7 @@ def text_input(request, classifier_id):
     return render(request, 'text_input.html', context)
 
 
-def predict(request):
+def predict(request, classifier_id):
     return render(request, 'predict.html')
 
 

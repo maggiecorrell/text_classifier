@@ -40,7 +40,7 @@
           <div class="btn-group">
             <a href="{% url 'category' classifier.id %}"><button class="btn btn-primary">Category</button></a>
             <a href="{% url 'text_input' classifier.id %}"><button class="btn btn-primary">Sample</button></a>
-            <a href="#"><button class="btn btn-primary">Predict</button></a>
+            <a href="{% url 'predict' classifier.id %}"><button class="btn btn-primary">Predict</button></a>
           </div>
         </div>
       </div>
