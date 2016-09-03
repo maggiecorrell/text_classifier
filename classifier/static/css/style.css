@@ -74,14 +74,14 @@ h1 {
   }
 }*/
 
-#in1 {
-  Width = 100%;
-  height = auto
+#sample-input-box {
+  width = 100%;
+  height = auto;
 }
 
-.form-group {
+/*.form-group {
 : 15px;
-}
+}*/
 
 h3 {
   text-align: center;
