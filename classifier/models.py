@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_selection import VarianceThreshold
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 import numpy as np
@@ -17,7 +18,8 @@ class Classifier(models.Model):
     def train(self):
         X = []
         y = []
-        self.pipeline = Pipeline([('vectorizer', CountVectorizer()),
+        self.pipeline = Pipeline([('vectorizer', CountVectorizer(ngram_range=(1, 3))),
+                                  ('feature_selection', VarianceThreshold(threshold=(.8*(1-.8)))),
                                   ('multinom', MultinomialNB())])
         corpus = self.sample_set.all()
         for sample in corpus:
@@ -26,7 +28,7 @@ class Classifier(models.Model):
         # X = np.array(X)
         # y = np.array(y)
         self.pipeline.fit(X, y)
-        return
+
 
     def predict(self, text):
         y_pred = self.pipeline.predict(text)
