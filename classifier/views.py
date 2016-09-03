@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from .forms import UploadFileForm
-from .models import Classifier
+from .models import Classifier, Category
 import magic
 
 
@@ -42,14 +42,15 @@ def category(request, classifier_id):
         classifier = None
     if classifier not in classifiers:
         return HttpResponseRedirect(reverse('classifier', kwargs={'pk': user.pk}))
-    # if request.method == 'POST':
-    #     classifier_name = request.POST.get('classifier-name', '')
-    #     if classifier_name:
-    #         classifier = Classifier(name=classifier_name, user=pk)
-    #         classifier.save()
+    if request.method == 'POST':
+        category_name = request.POST.get('category-name', '')
+        if category_name:
+            category = Category(name=category_name, classifier=classifier)
+            category.save()
     categories = Classifier.objects.get(id=classifier_id).category_set.all()
     context = {
-        'catagories': categories
+        'classifier': classifier,
+        'categories': categories
     }
     return render(request, 'category.html', context)
 
