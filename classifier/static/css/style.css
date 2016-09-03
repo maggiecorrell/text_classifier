@@ -19,10 +19,9 @@ body {
   background-size: cover;
 }
 
-.h1 {
-  padding-bottom: 40px;
+h1 {
   padding-top: 40px;
-  font-family: Gill Sans Extrabold, sans-serif;
+	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
 }
 
 .top {
@@ -67,4 +66,8 @@ body {
 #in1 {
   Width = 100%;
   height = auto
+}
+
+.form-group {
+  line-height: 15px;
 }

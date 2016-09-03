@@ -3,19 +3,18 @@
 
 <head>
   <title>
-    {% block title %}Trainer{% endblock %}
+    {% block title %}Predict{% endblock %}
   </title>
 </head>
 
 {% block body %}
 <div class="container">
-  <h1>Training Time! </h1>
+  <h1>Predict </h1>
 <div class="card">
 <div class="form-group">
-  <label>Text Input:</label>
   <form method="post" action="">
-    <input class="form-control form-control-lg" id="in1" type="text" placeholder="Enter training text here..."></input>
-    <input class="btn btn-primary" type="submit">
+    <input class="form-control form-control-lg" id="in1" type="text" placeholder="Enter text here..."></input>
+    <button class="btn btn-primary" type="submit">Predict!</button>
   </form>
   <h3>Or</h3>
   <input type="file" id="my_file">
