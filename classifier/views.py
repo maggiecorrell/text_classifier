@@ -32,12 +32,28 @@ def classifier(request, pk):
 
 
 @login_required
-def category(request, user_pk):
+def category(request, classifier_id):
+    classifier_id = int(classifier_id)
     user = request.user
+    classifiers = Classifier.objects.filter(user=user)
+    try:
+        classifier = Classifier.objects.get(id=classifier_id)
+    except:
+        classifier = None
+    if classifier not in classifiers:
+        return HttpResponseRedirect(reverse('classifier', kwargs={'pk': user.pk}))
+    # user = request.user
+    # classifiers = Classifier.objects.filter(user=user)
+    # if user.pk != pk:
+    #
     # if request.method == 'POST':
-    # categories =
+    #     classifier_name = request.POST.get('classifier-name', '')
+    #     if classifier_name:
+    #         classifier = Classifier(name=classifier_name, user=pk)
+    #         classifier.save()
+    categories = Classifier.objects.get(id=classifier_id).category_set.all()
     context = {
-    #     'categories': categories
+        # 'catagories': categories
     }
     return render(request, 'category.html', context)
 
