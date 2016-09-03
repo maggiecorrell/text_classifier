@@ -7,17 +7,15 @@
 </head>
 
 {% block body %}
-<br>
-<body>
+
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3 class="text-xs-center"> Create a New Classifier</h3>
         <div class="input-group">
           <form class="form-inline" action="" method="post">
             {% csrf_token %}
             <div class="form-group">
-              <input type="text" class="form-control" name="classifier-name" placeholder="Classifier Name...">
+              <input type="text" class="form-control" name="classifier-name" placeholder="Create a Classifier">
             </div>
             <button class="btn btn-primary" type="submit">Create!</button>
           </form>
@@ -25,9 +23,8 @@
       </div>
       </div>
     </div>
-<br>
+    <br>
 <div class="container">
-  <h3 class="text-md-center">Classifiers you have created</h3>
   <div class="card-columns">
     {% for classifier in classifiers %}
       <div class="card">
@@ -41,9 +38,9 @@
         </ul>
         <div class="text-xs-center">
           <div class="btn-group">
-            <a href="{% url 'category' classifier.id %}"><button class="btn btn-secondary">Category</button></a>
-            <a href="#"><button class="btn btn-secondary">Sample</button></a>
-            <a href="#"><button class="btn btn-secondary">Predict</button></a>
+            <a href="{% url 'category' classifier.id %}"><button class="btn btn-primary">Category</button></a>
+            <a href="#"><button class="btn btn-primary">Sample</button></a>
+            <a href="#"><button class="btn btn-primary">Predict</button></a>
           </div>
         </div>
       </div>
@@ -51,7 +48,4 @@
   </div>
 </div>
 
-
-
-</body>
 {% endblock %}

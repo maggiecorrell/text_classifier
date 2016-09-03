@@ -8,14 +8,9 @@
 </head>
 
 {% block body %}
-<body>
 <div class="container">
-  <div class="col-md-3"></div>
-
-    <div class="col-md-6">
-<div class="center">
+<div class="card">
         <form method=POST>
-
               <h1> Register for Peak Classifier </h1>
           {% csrf_token %}
           {% for field in userform %}
@@ -32,10 +27,6 @@
 
       <div class="login_button">
    <p> Already have an account?<a href="{% url 'login_user' %}" class="btn btn-link"> Log in.</a></p></div>
-      </div>
-        </div>
-    </div>
-
-  </div>
-</body>
+</div>
+</div>
 {% endblock %}
