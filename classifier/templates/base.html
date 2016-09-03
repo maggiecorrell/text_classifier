@@ -16,7 +16,7 @@
     <nav id="nav" class="navbar navbar-dark bg-inverse">
       <ul class="nav navbar-nav">
         <a class="navbar-brand"><img id="peak" src='{% static 'img/mountain-peak-logo-no-clouds-hi.png' %}'></a>
-        <a class="navbar-brand" href="#">Peak Classifier</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Peak Classifier</a>
       </ul>
         <ul class="nav navbar-nav pull-xs-right">
             {% if user.is_authenticated %}
