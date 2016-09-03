@@ -9,6 +9,7 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.implicitly_wait(3)
 
     def tearDown(self):
+        # Remove gustav_55 from database
         self.browser.quit()
 
     def test_can_start_a_classifier_and_predict_with_it(self):

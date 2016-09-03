@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from .forms import UploadFileForm
-from .models import Classifier, Category
+from .models import Classifier, Category, Sample
 import magic
 
 
@@ -55,8 +55,29 @@ def category(request, classifier_id):
     return render(request, 'category.html', context)
 
 
-def text_input(request):
-    return render(request, 'text_input.html')
+def text_input(request, classifier_id):
+    classifier_id = int(classifier_id)
+    user = request.user
+    classifiers = Classifier.objects.filter(user=user)
+    try:
+        classifier = Classifier.objects.get(id=classifier_id)
+    except:
+        classifier = None
+    if classifier not in classifiers:
+        return HttpResponseRedirect(reverse('classifier', kwargs={'pk': user.pk}))
+    if request.method == 'POST':
+        category_name = request.POST.get('category', "")
+        sample_text = request.POST.get('sample-text', "")
+        if category_name and sample_text:
+            category = Category.objects.get(name=category_name)
+            sample = Sample(classifier=classifier, category=category, text=sample_text)
+            sample.save()
+    categories = Classifier.objects.get(id=classifier_id).category_set.all()
+    context = {
+        'classifier': classifier,
+        'categories': categories
+    }
+    return render(request, 'text_input.html', context)
 
 
 def predict(request):
@@ -81,6 +102,7 @@ def register_user(request):
 
 
 def login_user(request):
+    print(request.POST)
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']

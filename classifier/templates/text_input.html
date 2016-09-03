@@ -14,25 +14,21 @@
 <div class="form-group">
   <form method="post" action="">
     {% csrf_token %}
-    <input class="form-control form-control-lg" id="in1" type="text" placeholder="Enter training text for 'NAME OF CATEGORY'..."></input>
-<div class="a_right">
-    <input class="btn btn-primary" type="submit">
-  </div>
+    <input class="form-control form-control-lg" id="sample-input-box" row="3" type="text" name="sample-text" placeholder="Enter training text for {{ classifier.name }}..." required></input>
+    <label for="">Select Category</label>
+    <select class="form-control" name="category" required>
+      {% for category in categories %}
+        <option>{{ category.name }}</option>
+      {% endfor %}
+    </select>
+    <div class="a_right">
+      <input class="btn btn-primary" type="submit">
+    </div>
   </form>
-  <div class="dropdown open">
-  <a class="btn btn-secondary dropdown-toggle" id="dropdownMenuLink" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Choose a Category
-  </a>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Smile</a>
-    <a class="dropdown-item" href="#">Cry</a>
-    <a class="dropdown-item" href="#">Pizza</a>
-  </div>
-</div>
   <h3>OR</h3>
   <div class="center">
-  <input type="file" id="my_file">
-</div>
+    <input type="file" id="my_file">
+  </div>
 </div>
 </div>
 </div>
