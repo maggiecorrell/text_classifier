@@ -69,5 +69,20 @@ h1 {
 }
 
 .form-group {
-  line-height: 15px;
+: 15px;
+}
+
+h3 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.a_right {
+  text-align: right;
+  padding-top: 10px;
+}
+
+.center {
+  text-align: center;
 }
