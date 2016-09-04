@@ -111,6 +111,7 @@ def predict(request, classifier_id):
             prediction = classifier.predict([predict_text])
             prediction = prediction[0]
     context = {
+        'classifier': classifier,
         'prediction': prediction,
     }
     return render(request, 'predict.html', context)
