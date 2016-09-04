@@ -33,6 +33,14 @@
     </nav>
     <div class="container">
     <div class="card" id="holder">
+      <div>
+      <ul class="breadcrumb">
+          <li><a href="/classifier/{{user.pk}}/">Classifiers</a></li>
+          <li><a href="/category/{{classifier_id}}/">Categories</a></li>
+          <li><a href="">Text Input</a></li>
+          <li><a href="">Predict</a></li>
+      </ul>
+      </div>
     {% block body %}
     {% endblock %}
     </div>
