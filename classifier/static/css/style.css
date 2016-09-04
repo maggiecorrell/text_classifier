@@ -5,12 +5,20 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-color: #93ACD5
+    background-color: #93ACD5;
+    height: 100%;
 }
 
 
 .container {
-  margin: 0 auto;
+  padding: 20px 20px 20px 20px;
+  border-width: 0px;
+  background-color: #EEF;
+  height: 100%;
+}
+
+.footer {
+  padding-top: 100%;
 }
 
 *{
@@ -32,8 +40,7 @@ body {
 
 h1 {
   padding-top: 40px;
-	/*font-family: Copperplate, "Copperplate Gothic Light", fantasy;*/
-  font-family: Helvetica, sans-serif;
+	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
 }
 
 .top {
@@ -50,13 +57,13 @@ h1 {
 }
 
 
-.card {
+/*.card {
   margin-top: 40px;
   padding: 20px 20px 20px 20px;
   border-width: 0px;
   background-color: #EEF;
-  border-radius: 10px;
-}
+  height: 100%;
+}*/
 
 .list-group .list-group-flush {
   border-color: #4D4D4D;
