@@ -17,7 +17,7 @@
             <div class="form-group">
               <input type="text" class="form-control" name="classifier-name" placeholder="Create a Classifier">
             </div>
-            <button class="btn btn-primary" type="submit">Create!</button>
+            <button class="btn btn-default" type="submit">Create!</button>
           </form>
         </div>
       </div>
@@ -49,7 +49,7 @@
     Categories
     <span class="caret"></span>
   </button>
-          <ul class="dropdown-menu text-xs-center" aria-labelledby="dropdownMenu1">
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             {% for category in classifier.category_set.all %}
               <li class="list-group-item text-xs-center"><a>{{ category.name }}</a></li>
             {% endfor %}
