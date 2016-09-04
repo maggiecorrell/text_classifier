@@ -75,7 +75,7 @@ def text_input(request, classifier_id):
         sample_text = request.POST.get('sample-text', "")
         if category_name and sample_text:
             category = Category.objects.get(name=category_name)
-            sample = Sample(classifier=classifier, category=category, text=sample_text)
+            sample = Sample.objects.create(classifier=classifier, category=category, text=sample_text)
             sample.save()
     categories = Classifier.objects.get(id=classifier_id).category_set.all()
     context = {

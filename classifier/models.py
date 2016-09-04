@@ -20,10 +20,10 @@ class Classifier(models.Model):
         X = []
         y = []
         pipeline = Pipeline([('vectorizer',
-                                   CountVectorizer(ngram_range=(1, 3))),
-                                  ('feature_selection',
-                                   VarianceThreshold(threshold=(.8*(1-.8)))),
-                                  ('multinom', MultinomialNB())])
+                              CountVectorizer(ngram_range=(1, 3))),
+                             ('feature_selection',
+                              VarianceThreshold(threshold=(.8*(1-.8)))),
+                             ('multinom', MultinomialNB())])
         corpus = self.sample_set.all()
         for sample in corpus:
             X.append(sample.text)
@@ -32,7 +32,6 @@ class Classifier(models.Model):
         # y = np.array(y)
         self.pipeline = pickle.dumps(pipeline.fit(X, y))
         self.save()
-
 
     def predict(self, text):
         pipe = pickle.loads(self.pipeline)
