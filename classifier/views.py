@@ -55,6 +55,7 @@ def category(request, classifier_id):
     return render(request, 'category.html', context)
 
 
+@login_required
 def text_input(request, classifier_id):
     classifier_id = int(classifier_id)
     user = request.user
@@ -84,8 +85,27 @@ def text_input(request, classifier_id):
     return render(request, 'text_input.html', context)
 
 
+@login_required
 def predict(request, classifier_id):
-    return render(request, 'predict.html')
+    classifier_id = int(classifier_id)
+    user = request.user
+    classifiers = Classifier.objects.filter(user=user)
+    prediction = None
+    try:
+        classifier = Classifier.objects.get(id=classifier_id)
+    except:
+        classifier = None
+    if classifier not in classifiers:
+        return HttpResponseRedirect(reverse('classifier', kwargs={'pk': user.pk}))
+    if request.method == 'POST':
+        predict_text = request.POST.get("predict-text", "")
+        if predict_text:
+            prediction = classifier.predict([predict_text])
+            prediction = prediction[0]
+    context = {
+        'prediction': prediction
+    }
+    return render(request, 'predict.html', context)
 
 
 def register_user(request):
