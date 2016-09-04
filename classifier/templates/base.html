@@ -35,12 +35,15 @@
 
       <div>
       {% if user.is_authenticated %}
-      <ul class="breadcrumb">
-          <a href="{% url 'classifier' user.pk %}">Classifiers</a>
-          <a href="#">Categories</a>
-          <a href="">Text Input</a>
-          <a href="">Predict</a>
-      </ul>
+      <!-- If on classifier sub pages? -->
+        {% if classifier %}
+        <ul class="breadcrumb">
+            <a href="{% url 'classifier' user.pk %}">Classifiers</a>
+            <a href="{% url 'category' classifier.id %}">Categories</a>
+            <a href="{% url 'text_input' classifier.id %}">Text Input</a>
+            <a href="{% url 'predict' classifier.id %}">Predict</a>
+        </ul>
+        {% endif %}
       {% endif %}
       </div>
     {% block body %}

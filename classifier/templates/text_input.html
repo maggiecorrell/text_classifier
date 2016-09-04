@@ -1,36 +1,40 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %} {% load static %}
 
 <head>
-  <title>
-    {% block title %}Trainer{% endblock %}
-  </title>
+    <title>
+        {% block title %}Trainer{% endblock %}
+    </title>
 </head>
 
 {% block body %}
 <div class="container">
-  <h1>Training Time! </h1>
-<div class="card">
-<div class="form-group">
-  <form method="post" action="">
-    {% csrf_token %}
-    <input class="form-control form-control-lg" id="sample-input-box" row="3" type="text" name="sample-text" placeholder="Enter training text for {{ classifier.name }}..." required></input>
-    <label for="">Select Category</label>
-    <select class="form-control" name="category" required>
+    <h1> Training Time! </h1>
+
+    <div class="form-group">
+        <form method="post" action="">
+            <div class="row" id="row1">
+                {% csrf_token %}
+                <input class="form-control form-control-lg" id="sample-input-box" row="3" type="text" name="sample-text" placeholder="Enter training text for {{ classifier.name }}..." required></input>
+            </div>
+            <div class="row" id="row2">
+                <div class="col-md-3">
+                    <label for="">Select Category</label>
+                    <select class="form-control" name="category" required>
       {% for category in categories %}
         <option>{{ category.name }}</option>
       {% endfor %}
     </select>
-    <div class="text-xs-center">
-      <input class="btn btn-primary" type="submit">
-    </div>
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-3">
+                    <input class="btn btn-info" type="submit">
+                </div>
+        </form>
+        </div>
+
   </form>
-  <form method="post" action="">
-    {% csrf_token %}
-    <div class="text-xs-center">
-      <button class="btn btn-primary" name="train" value="train">Train</button>
-    </div>
-  </form>
+</div>
+  <div class="row" id="row3">
   <h3>OR</h3>
   <div class="center">
     <form method="post" action="" enctype="multipart/form-data">
@@ -40,8 +44,19 @@
     </form>
     <p>(Please only submit csv files. Example file for layout <a href="{% static 'csv/example.csv' %}">here</a>)</p>
   </div>
+
+  <div class="row" id="row4">
+                  <form method="post" action="">
+                      {% csrf_token %}
+                      <div class="text-xs-center">
+                          <button class="btn btn-info" name="train" value="train">Train</button>
+                      </div>
+              </div>
+              </form>
 </div>
 </div>
 </div>
 
-{% endblock %}
+
+
+    {% endblock %}
