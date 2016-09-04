@@ -4,6 +4,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
+import csv
+from io import TextIOWrapper
 import numpy as np
 import pickle
 
@@ -47,6 +49,18 @@ class Sample(models.Model):
     text = models.TextField()
     classifier = models.ForeignKey(Classifier)
     category = models.ForeignKey(Category)
+
+    def handle_uploaded_file(file, classifier):
+        f = TextIOWrapper(file.file, encoding='latin_1')
+        reader = csv.reader(f)
+        for row in reader:
+            category = Category.objects.get_or_create(
+                name=row[1],
+                classifier=classifier
+            )
+            s = Sample(text=row[0], category=category[0], classifier=classifier)
+            s.save()
+
 
 # class File_Upload(models.Model):
 #     classifer = models.OneToOneField(Classifier)
