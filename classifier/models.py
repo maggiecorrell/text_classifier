@@ -55,10 +55,10 @@ class Sample(models.Model):
         reader = csv.reader(f)
         for row in reader:
             category = Category.objects.get_or_create(
-                name=row[1],
+                name=row[2],
                 classifier=classifier
             )
-            s = Sample(text=row[0], category=category[0], classifier=classifier)
+            s = Sample(text=row[1], category=category[0], classifier=classifier)
             s.save()
 
 

@@ -31,24 +31,32 @@
                 </div>
         </form>
         </div>
-        <div class="row" id="row3">
-            <h3>OR</h3>
-            <div class="center">
-                <form method="post" action="" enctype="multipart/form-data">
-                    {% csrf_token %} {{ fileform }}
-                    <input type="submit" value="Submit" />
-                </form>
-<div class="row" id="row4">
-                <form method="post" action="">
-                    {% csrf_token %}
-                    <div class="text-xs-center">
-                        <button class="btn btn-info" name="train" value="train">Train</button>
-                    </div>
-            </div>
-            </form>
-        </div>
 
-    </div>
+  </form>
+</div>
+  <div class="row" id="row3">
+  <h3>OR</h3>
+  <div class="center">
+    <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ fileform }}
+      <input type="submit" value="Submit" />
+    </form>
+    <p>(Please only submit csv files. Example file for layout <a href="{% static 'csv/example.csv' %}">here</a>)</p>
+  </div>
+
+  <div class="row" id="row4">
+                  <form method="post" action="">
+                      {% csrf_token %}
+                      <div class="text-xs-center">
+                          <button class="btn btn-info" name="train" value="train">Train</button>
+                      </div>
+              </div>
+              </form>
+</div>
+</div>
+</div>
+
 
 
     {% endblock %}
