@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+<head>
+  <title>
+    {% block title %}{{classifier.name}}{% endblock %}
+  </title>
+</head>
+
+{% block body %}
+<h1>{{classifier.name}}</h1>
+<h2>Categories</h2>
+<ul class="list-group list-group-flush">
+  {% for category in classifier.category_set.all %}
+    <li class="list-group-item text-xs-center">{{ category.name }}</li>
+  {% endfor %}
+</ul>
+<h2>Samples</h2>
+<ul class="list-group list-group-flush">
+  {% for sample in classifier.sample_set.all %}
+    <li class="list-group-item text-xs-center">{{ sample.text }}, {{sample.category.name}}</li>
+  {% endfor %}
+</ul>
+{{classifier.accuracy}}
+
+
+{% endblock %}

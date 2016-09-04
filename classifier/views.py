@@ -137,3 +137,23 @@ def login_user(request):
         else:
             return render(request, 'registration/login.html')
     return render(request, 'registration/login.html')
+
+
+@login_required
+def classifier_detail(request, classifier_id):
+    classifier_id = int(classifier_id)
+    user = request.user
+    classifiers = Classifier.objects.filter(user=user)
+    prediction = None
+    try:
+        classifier = Classifier.objects.get(id=classifier_id)
+    except:
+        classifier = None
+    if classifier not in classifiers:
+        return HttpResponseRedirect(reverse('classifier', kwargs={'pk': user.pk}))
+    if request.method == 'POST':
+        pass
+    context = {
+        'classifier': classifier,
+    }
+    return render(request, 'classifier_detail.html', context)

@@ -4,6 +4,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
+from sklearn.cross_validation import cross_val_score
 import numpy as np
 import pickle
 
@@ -21,15 +22,15 @@ class Classifier(models.Model):
         y = []
         pipeline = Pipeline([('vectorizer',
                               CountVectorizer(ngram_range=(1, 3))),
-                             ('feature_selection',
-                              VarianceThreshold(threshold=(.8*(1-.8)))),
+                            #  ('feature_selection',
+                            #   VarianceThreshold(threshold=(.8*(1-.8)))),
                              ('multinom', MultinomialNB())])
         corpus = self.sample_set.all()
         for sample in corpus:
             X.append(sample.text)
             y.append(sample.category.name)
-        # X = np.array(X)
-        # y = np.array(y)
+        X = np.array(X)
+        y = np.array(y)
         self.pipeline = pickle.dumps(pipeline.fit(X, y))
         self.save()
 
