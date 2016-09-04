@@ -34,12 +34,14 @@
     <div class="container">
 
       <div>
+      {% if user.is_authenticated %}
       <ul class="breadcrumb">
           <a href="{% url 'classifier' user.pk %}">Classifiers</a>
           <a href="#">Categories</a>
           <a href="">Text Input</a>
           <a href="">Predict</a>
       </ul>
+      {% endif %}
       </div>
     {% block body %}
     {% endblock %}
