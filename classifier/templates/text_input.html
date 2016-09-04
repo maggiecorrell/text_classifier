@@ -33,7 +33,12 @@
   </form>
   <h3>OR</h3>
   <div class="center">
-    <input type="file" id="my_file">
+    <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ fileform }}
+      <input type="submit" value="Submit" />
+    </form>
+    <p>(Please only submit csv files. Example file for layout <a href="{% static 'csv/example.csv' %}">here</a>)</p>
   </div>
 </div>
 </div>

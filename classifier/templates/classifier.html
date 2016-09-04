@@ -29,23 +29,40 @@
     {% for classifier in classifiers %}
       <div class="card">
         <div class="card-block">
-          <h3 class="card-title">{{ classifier.name }}</h3>
+                  <div class="text-xs-center">
+                    <div class="btn-group">
+                      <a href="{% url 'category' classifier.id %}"><button class="btn-group btn-group-xs">Category</button></a>
+                      <a href="{% url 'text_input' classifier.id %}"><button class="btn-group btn-group-xs">Sample</button></a>
+                      <a href="{% url 'predict' classifier.id %}"><button class="btn-group btn-group-xs">Predict</button></a>
+                    </div>
+                  </div>
+          <h1 class="card-title">{{ classifier.name }}</h1>
         </div>
-        <ul class="list-group list-group-flush">
+        <!-- <ul class="list-group list-group-flush">
           {% for category in classifier.category_set.all %}
             <li class="list-group-item text-xs-center">{{ category.name }}</li>
           {% endfor %}
-        </ul>
+        </ul> -->
         <div class="text-xs-center">
-          <div class="btn-group">
-            <a href="{% url 'category' classifier.id %}"><button class="btn btn-primary">Category</button></a>
-            <a href="{% url 'text_input' classifier.id %}"><button class="btn btn-primary">Sample</button></a>
-            <a href="{% url 'predict' classifier.id %}"><button class="btn btn-primary">Predict</button></a>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
+          <div class="dropdown">
+  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Categories
+    <span class="caret"></span>
+  </button>
+          <ul class="dropdown-menu text-xs-center" aria-labelledby="dropdownMenu1">
+            {% for category in classifier.category_set.all %}
+              <li class="list-group-item text-xs-center"><a>{{ category.name }}</a></li>
+            {% endfor %}
+          </ul>
+</div>
+
+</div>
+
+
+
+
   </div>
+  {% endfor %}
 </div>
 
 {% endblock %}

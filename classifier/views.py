@@ -67,6 +67,11 @@ def text_input(request, classifier_id):
     if classifier not in classifiers:
         return HttpResponseRedirect(reverse('classifier', kwargs={'pk': user.pk}))
     if request.method == 'POST':
+        if request.FILES:
+            fileform = UploadFileForm(request.POST, request.FILES)
+            if fileform.is_valid():
+                Sample.handle_uploaded_file(request.FILES['file'], classifier)
+                return HttpResponseRedirect(reverse('classifier', kwargs={'pk': user.pk}))
         train = request.POST.get("train", "")
         if train:
             classifier.train()
@@ -77,10 +82,13 @@ def text_input(request, classifier_id):
             category = Category.objects.get(name=category_name)
             sample = Sample.objects.create(classifier=classifier, category=category, text=sample_text)
             sample.save()
+
     categories = Classifier.objects.get(id=classifier_id).category_set.all()
+    fileform = UploadFileForm()
     context = {
         'classifier': classifier,
-        'categories': categories
+        'categories': categories,
+        'fileform': fileform
     }
     return render(request, 'text_input.html', context)
 
@@ -103,7 +111,7 @@ def predict(request, classifier_id):
             prediction = classifier.predict([predict_text])
             prediction = prediction[0]
     context = {
-        'prediction': prediction
+        'prediction': prediction,
     }
     return render(request, 'predict.html', context)
 
