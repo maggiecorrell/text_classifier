@@ -36,6 +36,7 @@
             <li class="list-group-item text-xs-center">{{ category.name }}</li>
           {% endfor %}
         </ul> -->
+        <div class="text-xs-center">
         <div class="dropdown">
   <button class="dropbtn">Has Categories...</button>
   <div class="dropdown-content">
@@ -44,6 +45,7 @@
     {% endfor %}
   </div>
 </div>
+<div>
         <div class="text-xs-center">
           <div class="btn-group">
             <a href="{% url 'category' classifier.id %}"><button class="btn btn-primary">Category</button></a>
