@@ -13,11 +13,15 @@
 <div class="card">
 <div class="form-group">
   <form method="post" action="">
-    <input class="form-control form-control-lg" id="in1" type="text" placeholder="Enter text here..."></input>
+    {% csrf_token %}
+    <input class="form-control form-control-lg" name="predict-text" type="text" placeholder="Enter text here..."></input>
     <div class="a_right">
       <button class="btn btn-primary" type="submit">Predict!</button>
     </div>
   </form>
+  {% if prediction %}
+    {{ prediction }}
+  {% endif %}
 </div>
 </div>
 </div>

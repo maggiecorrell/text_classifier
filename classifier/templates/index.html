@@ -3,9 +3,7 @@
 {% block body %}
 
 <div class="mt_bg">
-<div class="container">
   <div class="jumbotron">
-  <div class="container">
     <h1 class="display-3 text-xs-center">Welcome to Peak Classifier</h1>
     <p class="lead">
       Peak Classifier has the ability to analyze and predict text sentiment using
@@ -15,18 +13,24 @@
       text fragment or an entire file (CSV formatted) and return the desired
       response.
     </p>
+    <br />
+    <p class="lead">
+      Simply sign up and try building a classifier yourself!
+    </p>
     <hr class="m-y-2">
-    <div class="text-xs-center">
+    <!-- <div class="text-xs-center">
       <img src="{% static "img/bayes-rule.png" %}">
-    </div>
+    </div> -->
     <div class="text-xs-center">
-      <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">
+      <p>If you would like to know more:
+        <a href="https://en.wikipedia.org/wiki/Text_mining">read here</a>!
+      </p>
+      <!-- <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">
         <h1>Bayes' Theorem</h1>
-      </a>
+      </a> -->
     </div>
   </div>
-  </div>
-</div>
+
 <div>
 
 {% endblock %}

@@ -5,6 +5,7 @@ from sklearn.feature_selection import VarianceThreshold
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 import numpy as np
+import pickle
 
 
 class Classifier(models.Model):
@@ -18,22 +19,23 @@ class Classifier(models.Model):
     def train(self):
         X = []
         y = []
-        self.pipeline = Pipeline([('vectorizer',
-                                   CountVectorizer(ngram_range=(1, 3))),
-                                  ('feature_selection',
-                                   VarianceThreshold(threshold=(.8*(1-.8)))),
-                                  ('multinom', MultinomialNB())])
+        pipeline = Pipeline([('vectorizer',
+                              CountVectorizer(ngram_range=(1, 3))),
+                             ('feature_selection',
+                              VarianceThreshold(threshold=(.8*(1-.8)))),
+                             ('multinom', MultinomialNB())])
         corpus = self.sample_set.all()
         for sample in corpus:
             X.append(sample.text)
             y.append(sample.category.name)
         # X = np.array(X)
         # y = np.array(y)
-        self.pipeline.fit(X, y)
+        self.pipeline = pickle.dumps(pipeline.fit(X, y))
+        self.save()
 
     def predict(self, text):
-        y_pred = self.pipeline.predict(text)
-        return y_pred
+        pipe = pickle.loads(self.pipeline)
+        return pipe.predict(text)
 
 
 class Category(models.Model):
