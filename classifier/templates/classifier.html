@@ -54,10 +54,12 @@
       <div class="card">
         <div class="card-block">
                   <div class="text-xs-center">
-                    <div class="btn-group">
-                      <a href="{% url 'category' classifier.id %}"><button class="btn-group btn-group-xs">Category</button></a>
-                      <a href="{% url 'text_input' classifier.id %}"><button class="btn-group btn-group-xs">Sample</button></a>
-                      <a href="{% url 'predict' classifier.id %}"><button class="btn-group btn-group-xs">Predict</button></a>
+                    <div class="btn-group btn-group-xs">
+                      <a href="{% url 'category' classifier.id %}"><button class="btn btn-default btn-sm">Category</button></a>
+                      <a href="{% url 'text_input' classifier.id %}"><button class="btn btn-default btn-sm">Sample</button></a>
+                      {% if classifier.pipeline %}
+                      <a href="{% url 'predict' classifier.id %}"><button class="btn btn-default btn-sm">Predict</button></a>
+                      {% endif %}
                     </div>
                   </div>
           <h1 class="card-title">{{ classifier.name }}</h1>

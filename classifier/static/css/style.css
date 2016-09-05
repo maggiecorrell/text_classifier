@@ -168,7 +168,7 @@ input {
   list-style-type: none;
   display: inline;
   text-align: left;
-  color: #ECEEEF;
+  /*color: #ECEEEF;*/
 }
 
 #row1 {
@@ -185,3 +185,77 @@ input {
 #row4 {
   padding: 20px;
 }
+
+/* We don't have to go with this breadcrumb stuff below
+Just trying it out. Let me know your thoughts */
+
+.breadcrumb {
+	list-style: none;
+	overflow: hidden;
+  background-color: #eef;
+	font: 18px Helvetica, Arial, Sans-Serif;
+}
+
+.breadcrumb li {
+	float: left;
+}
+
+.breadcrumb li a {
+	color: white;
+	text-decoration: none;
+	padding: 10px 0 10px 30px;
+	background: blue;                   /* fallback color */
+	background: hsla(210,50%,35%,1);
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.breadcrumb li a:after {
+	content: " ";
+	display: block;
+	width: 0;
+	height: 0;
+	border-top: 21px solid transparent;           /* Go big on the size, and let overflow hide */
+	border-bottom: 22px solid transparent;
+	border-left: 20px solid hsla(210,50%,35%,1);
+	position: absolute;
+	top: 122%;
+	margin-top: -50px;
+	left: 100%;
+	z-index: 2;
+}
+
+.breadcrumb li a:before {
+	content: " ";
+	display: block;
+	width: 0;
+	height: 0;
+	border-top: 21px solid transparent;
+	border-bottom: 22px solid transparent;
+	border-left: 20px solid white;
+	position: absolute;
+	top: 122%;
+	margin-top: -50px;
+	margin-left: 1px;
+	left: 100%;
+	z-index: 1;
+}
+
+.breadcrumb li:first-child a {
+	padding-left: 10px;
+}
+
+.breadcrumb li:nth-child(2) a       { background:        hsla(210,50%,45%,1); }
+.breadcrumb li:nth-child(2) a:after { border-left-color: hsla(210,50%,45%,1); }
+.breadcrumb li:nth-child(3) a       { background:        hsla(210,50%,55%,1); }
+.breadcrumb li:nth-child(3) a:after { border-left-color: hsla(210,50%,55%,1); }
+.breadcrumb li:nth-child(4) a       { background:        hsla(210,50%,65%,1); }
+.breadcrumb li:nth-child(4) a:after { border-left-color: hsla(210,50%,65%,1); }
+.breadcrumb li:nth-child(5) a       { background:        hsla(210,50%,75%,1); }
+.breadcrumb li:nth-child(5) a:after { border-left-color: hsla(210,50%,75%,1); }
+
+.breadcrumb li a:hover { background: hsla(210,50%,25%,1); }
+.breadcrumb li a:hover:after { border-left-color: hsla(210,50%,25%,1) !important; }
+
+/* End of breadcrumb experiment */

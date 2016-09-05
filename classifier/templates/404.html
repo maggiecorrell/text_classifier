@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <h2>Oops! Looks like you took a wrong turn!</h2>
+  <p>This page doesn't exist. Why not head back <a href={% url 'index' %}>home</a>?</p>
+{% endblock %}
