@@ -23,8 +23,6 @@ class Classifier(models.Model):
         y = []
         pipeline = Pipeline([('vectorizer',
                               CountVectorizer(ngram_range=(1, 3))),
-                            #  ('feature_selection',
-                            #   VarianceThreshold(threshold=(.8*(1-.8)))),
                              ('multinom', MultinomialNB())])
         corpus = self.sample_set.all()
         for sample in corpus:
