@@ -10,13 +10,12 @@
 {% block body %}
 <div class="container">
   <h1>Predict </h1>
-<div class="card">
-<div class="form-group">
+<div class="form-group" id="row1">
   <form method="post" action="">
     {% csrf_token %}
     <input class="form-control form-control-lg" name="predict-text" type="text" placeholder="Enter text here..."></input>
     <div class="a_right">
-      <button class="btn btn-default" type="submit">Predict!</button>
+      <button class="btn btn-ded" type="submit">Predict!</button>
     </div>
   </form>
   {% if prediction %}
@@ -24,7 +23,7 @@
   {% endif %}
 </div>
 </div>
-</div>
+
 </div>
 
 {% endblock %}
