@@ -135,7 +135,6 @@ def register_user(request):
 
 
 def login_user(request):
-    print(request.POST)
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']

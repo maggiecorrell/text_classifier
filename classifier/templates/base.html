@@ -38,10 +38,12 @@
       <!-- If on classifier sub pages? -->
         {% if classifier %}
         <ul class="breadcrumb">
-            <a href="{% url 'classifier' user.pk %}">Classifiers</a>
-            <a href="{% url 'category' classifier.id %}">Categories</a>
-            <a href="{% url 'text_input' classifier.id %}">Text Input</a>
-            <a href="{% url 'predict' classifier.id %}">Predict</a>
+            <li><a href="{% url 'classifier' user.pk %}">Classifiers</a></li>
+            <li><a href="{% url 'category' classifier.id %}">Categories</a></li>
+            <li><a href="{% url 'text_input' classifier.id %}">Text Input</a></li>
+            {% if classifier.pipeline %}
+            <li><a href="{% url 'predict' classifier.id %}">Predict</a></li>
+            {% endif %}
         </ul>
         {% endif %}
       {% endif %}

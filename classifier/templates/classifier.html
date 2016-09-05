@@ -18,6 +18,29 @@
               <input type="text" class="form-control" name="classifier-name" placeholder="Create a Classifier">
             </div>
             <button class="btn btn-default" type="submit">Create!</button>
+            <button type="button" class="btn btn-primary btn-link" data-toggle="modal" data-target="#myModal">
+    a little extra help
+  </button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">This is how it works</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
           </form>
         </div>
       </div>
@@ -28,12 +51,15 @@
   <div class="card-columns">
     {% for classifier in classifiers %}
       <div class="card">
+        <button type="button" class="btn btn-danger btn-sm">X</button>
         <div class="card-block">
                   <div class="text-xs-center">
-                    <div class="btn-group">
-                      <a href="{% url 'category' classifier.id %}"><button class="btn-group btn-group-xs">Category</button></a>
-                      <a href="{% url 'text_input' classifier.id %}"><button class="btn-group btn-group-xs">Sample</button></a>
-                      <a href="{% url 'predict' classifier.id %}"><button class="btn-group btn-group-xs">Predict</button></a>
+                    <div class="btn-group btn-group-xs">
+                      <a href="{% url 'category' classifier.id %}"><button class="btn btn-default btn-sm">Category</button></a>
+                      <a href="{% url 'text_input' classifier.id %}"><button class="btn btn-default btn-sm">Sample</button></a>
+                      {% if classifier.pipeline %}
+                      <a href="{% url 'predict' classifier.id %}"><button class="btn btn-default btn-sm">Predict</button></a>
+                      {% endif %}
                     </div>
                   </div>
           <h1 class="card-title">{{ classifier.name }}</h1>
