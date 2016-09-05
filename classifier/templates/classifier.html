@@ -15,12 +15,13 @@
           <form class="form-inline" action="" method="post">
             {% csrf_token %}
             <div class="form-group">
-              <input type="text" class="form-control" name="classifier-name" placeholder="Create a Classifier">
+              <input type="text" class="form-control" name="classifier-name" id="classifier" placeholder="Create a Classifier">
             </div>
             <button class="btn btn-default" type="submit">Create!</button>
-            <button type="button" class="btn btn-primary btn-link" data-toggle="modal" data-target="#myModal">
-    a little extra help
-  </button>
+            <ul id="help">
+            <li><button type="button" class="btn btn-primary btn-link" data-toggle="modal" data-target="#myModal">
+    Need Help?
+  </button></li>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
