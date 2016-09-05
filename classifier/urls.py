@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^classifier/(?P<pk>[0-9]+)/$', views.classifier, name='classifier'),
     url(r'^category/(?P<classifier_id>[0-9]+)/$', views.category, name='category'),
     url(r'^text_input/(?P<classifier_id>[0-9]+)/$', views.text_input, name='text_input'),
-    url(r'^predict/(?P<classifier_id>[0-9]+)/$', views.predict, name='predict')
+    url(r'^predict/(?P<classifier_id>[0-9]+)/$', views.predict, name='predict'),
+    url(r'^detail/(?P<classifier_id>[0-9]+)/$', views.classifier_detail, name="classifier_detail"),
     ]
