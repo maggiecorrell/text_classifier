@@ -9,7 +9,9 @@ body {
     height: 100%;
 }
 
-
+.jumbotron {
+  background-color: #EEEEFF;
+}
 .container {
   padding: 20px 20px 20px 20px;
   border-width: 0px;
@@ -17,8 +19,8 @@ body {
   height: 100%;
 }
 
-.footer {
-  padding-top: 100%;
+body > .container {
+  padding-top: 60px;
 }
 
 .col-centered {
