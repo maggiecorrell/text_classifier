@@ -1,119 +1,109 @@
 {% extends "base.html" %}
 
 <head>
-  <title>
-    {% block title %}Classifier {% endblock %}
-  </title>
+    <title>
+        {% block title %}Classifier {% endblock %}
+    </title>
 </head>
 
 {% block body %}
 
-  <div class="container">
+<div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <div class="input-group">
-          <form class="form-inline" action="" method="post">
-            {% csrf_token %}
-            <div class="form-group">
-              <input type="text" class="form-control" name="classifier-name" id="classifier" placeholder="Create a Classifier">
-            </div>
-            <button class="btn btn-default" type="submit">Create!</button>
-            <ul id="help">
-            <li><button type="button" class="btn btn-primary btn-link" data-toggle="modal" data-target="#myModal">
+        <div class="col-md-12">
+            <div class="input-group">
+                <form class="form-inline" action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="classifier-name" id="classifier" placeholder="Create a Classifier">
+                    </div>
+                    <button class="btn btn-default" type="submit">Create!</button>
+                    <ul id="help">
+                        <li><button type="button" class="btn btn-primary btn-link" data-toggle="modal" data-target="#myModal">
     Need Help?
   </button></li>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="js-title-step"></h4>
-      </div>
-      <div class="modal-body">
-        <div class="row hidden-xs-up" data-step="1" data-title="Create your classifier!">
-          <div class="jumbotron">The first step to get started is to create a classifier.</div>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="js-title-step"></h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row hidden-xs-up" data-step="1" data-title="Create your classifier!">
+                                            <div class="jumbotron">The first step to get started is to create a classifier.</div>
+                                        </div>
+                                        <div class="row hidden-xs-up" data-step="2" data-title="View your classifier!">
+                                            <div class="jumbotron">Then click on Category to be taken to the Category page.</div>
+                                        </div>
+                                        <div class="row hidden-xs-up" data-step="3" data-title="Add categories!">
+                                            <div class="jumbotron">Here you can add your categories as desired. When finished, click on Text Input at the top</div>
+                                        </div>
+                                        <div class="row hidden-xs-up" data-step="4" data-title="Feed data!">
+                                            <div class="jumbotron">Now simply add input text and select a category and click submit to begin feeding your classifier data</div>
+                                        </div>
+                                        <div class="row hidden-xs-up" data-step="5" data-title="Or import data!">
+                                            <div class="jumbotron">You can also upload a CSV file with your desired input data. See the example layout for details.</div>
+                                        </div>
+                                        <div class="row hidden-xs-up" data-step="6" data-title="Train your classifier!">
+                                            <div class="jumbotron">When finished, click Train to begin training your classifier model!</div>
+                                        </div>
+                                        <div class="row hidden-xs-up" data-step="7" data-title="Predict results!">
+                                            <div class="jumbotron">Now you can see how your model fares by inputting text and selecting predict to see if it guesses the correct label! The more samples used, the better the prediction!</div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default js-btn-step pull-xs-left" data-orientation="cancel" data-dismiss="modal"></button>
+                                        <button type="button" class="btn btn-warning js-btn-step" data-orientation="previous"></button>
+                                        <button type="button" class="btn btn-success js-btn-step" data-orientation="next"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                </form>
+            </div>
         </div>
-        <div class="row hidden-xs-up" data-step="2" data-title="View your classifier!">
-          <div class="jumbotron">Then click on Category to be taken to the Category page.</div>
-        </div>
-        <div class="row hidden-xs-up" data-step="3" data-title="Add categories!">
-          <div class="jumbotron">Here you can add your categories as desired. When finished, click on Text Input at the top</div>
-        </div>
-        <div class="row hidden-xs-up" data-step="4" data-title="Feed data!">
-          <div class="jumbotron">Now simply add input text and select a category and click submit to begin feeding your classifier data</div>
-        </div>
-        <div class="row hidden-xs-up" data-step="5" data-title="Or import data!">
-          <div class="jumbotron">You can also upload a CSV file with your desired input data. See the example layout for details.</div>
-        </div>
-        <div class="row hidden-xs-up" data-step="6" data-title="Train your classifier!">
-          <div class="jumbotron">When finished, click Train to begin training your classifier model!</div>
-        </div>
-        <div class="row hidden-xs-up" data-step="7" data-title="Predict results!">
-          <div class="jumbotron">Now you can see how your model fares by inputting text and selecting predict to see if it guesses the correct label! The more samples used, the better the prediction!</div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default js-btn-step pull-xs-left" data-orientation="cancel" data-dismiss="modal"></button>
-        <button type="button" class="btn btn-warning js-btn-step" data-orientation="previous"></button>
-        <button type="button" class="btn btn-success js-btn-step" data-orientation="next"></button>
-      </div>
     </div>
-  </div>
 </div>
-
-
-
-          </form>
-        </div>
-      </div>
-      </div>
-    </div>
-    <br>
+<br>
 <div class="container">
-  <div class="card-columns">
-    {% for classifier in classifiers %}
-      <div class="card">
-        <form action="" method="post">
-          {% csrf_token %}
-          <button type="submit" id="delete-button" class="btn btn-danger btn-sm pull-xs-right" name="delete-classifier" value="{{ classifier.id }}">X</button>
-        </form>
-        <div class="card-block">
-                  <div class="text-xs-center">
+    <div class="card-columns">
+        {% for classifier in classifiers %}
+        <div class="card">
+            <form action="" method="post">
+                {% csrf_token %}
+                <button type="submit" id="delete-button" class="btn btn-danger btn-sm pull-xs-right" name="delete-classifier" value="{{ classifier.id }}">X</button>
+            </form>
+            <div class="card-block">
+                <div class="text-xs-center">
                     <div class="btn-group btn-group-xs">
-                      <a href="{% url 'category' classifier.id %}"><button class="btn btn-default btn-sm">Category</button></a>
-                      <a href="{% url 'text_input' classifier.id %}"><button class="btn btn-default btn-sm">Sample</button></a>
-                      {% if classifier.pipeline %}
-                      <a href="{% url 'predict' classifier.id %}"><button class="btn btn-default btn-sm">Predict</button></a>
-                      {% endif %}
+                        <a href="{% url 'category' classifier.id %}"><button class="btn btn-default btn-sm">Category</button></a>
+                        <a href="{% url 'text_input' classifier.id %}"><button class="btn btn-default btn-sm">Sample</button></a> {% if classifier.pipeline %}
+                        <a href="{% url 'predict' classifier.id %}"><button class="btn btn-default btn-sm">Predict</button></a> {% endif %}
                     </div>
-                  </div>
-          <h1 class="card-title">{{ classifier.name }}</h1>
+                </div>
+                <h1 class="card-title">{{ classifier.name }}</h1>
+                <div class="container text-xs-center" id="category-drop">
+                    <div class="dropdown text-xs-center">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categories
+    <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            {% for category in classifier.category_set.all %}
+                            <li class="list-group-item text-xs-center"><a>{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+
         </div>
-        <!-- <ul class="list-group list-group-flush">
-          {% for category in classifier.category_set.all %}
-            <li class="list-group-item text-xs-center">{{ category.name }}</li>
-          {% endfor %}
-        </ul> -->
-        <div class="text-xs-center">
-          <div class="dropdown">
-  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Categories
-    <span class="caret"></span>
-  </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            {% for category in classifier.category_set.all %}
-              <li class="list-group-item text-xs-center"><a>{{ category.name }}</a></li>
-            {% endfor %}
-          </ul>
-</div>
+        {% endfor %}
+    </div>
 
-</div>
-
-
-
-
-  </div>
-  {% endfor %}
-</div>
-
-{% endblock %}
+    {% endblock %}
