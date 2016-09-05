@@ -17,13 +17,21 @@ def index(request):
 def classifier(request, pk):
     pk = int(pk)
     user = request.user
+
     if user.pk != pk:
         return HttpResponseRedirect(reverse('classifier', kwargs={'pk': user.pk}))
+
     if request.method == 'POST':
+        delete_classifier_by_id = request.POST.get('delete-classifier', '')
+        if delete_classifier_by_id:
+            classifier = Classifier.objects.get(id = delete_classifier_by_id)
+            classifier.delete()
+
         classifier_name = request.POST.get('classifier-name', '')
         if classifier_name:
             classifier = Classifier(name=classifier_name, user=user)
             classifier.save()
+
     classifiers = Classifier.objects.filter(user=user)
     context = {
         'classifiers': classifiers

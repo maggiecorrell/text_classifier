@@ -29,14 +29,26 @@
         <h4 class="js-title-step"></h4>
       </div>
       <div class="modal-body">
-        <div class="row hidden-xs-up" data-step="1" data-title="This is the first step!">
-          <div class="jumbotron">This is step 1</div>
+        <div class="row hidden-xs-up" data-step="1" data-title="Create your classifier!">
+          <div class="jumbotron">The first step to get started is to create a classifier.</div>
         </div>
-        <div class="row hidden-xs-up" data-step="2" data-title="This is the second step!">
-          <div class="jumbotron">This is step 2</div>
+        <div class="row hidden-xs-up" data-step="2" data-title="View your classifier!">
+          <div class="jumbotron">Then click on Category to be taken to the Category page.</div>
         </div>
-        <div class="row hidden-xs-up" data-step="3" data-title="This is the third step!">
-          <div class="jumbotron">This is step 3</div>
+        <div class="row hidden-xs-up" data-step="3" data-title="Add categories!">
+          <div class="jumbotron">Here you can add your categories as desired. When finished, click on Text Input at the top</div>
+        </div>
+        <div class="row hidden-xs-up" data-step="4" data-title="Feed data!">
+          <div class="jumbotron">Now simply add input text and select a category and click submit to begin feeding your classifier data</div>
+        </div>
+        <div class="row hidden-xs-up" data-step="5" data-title="Or import data!">
+          <div class="jumbotron">You can also upload a CSV file with your desired input data. See the example layout for details.</div>
+        </div>
+        <div class="row hidden-xs-up" data-step="6" data-title="Train your classifier!">
+          <div class="jumbotron">When finished, click Train to begin training your classifier model!</div>
+        </div>
+        <div class="row hidden-xs-up" data-step="7" data-title="Predict results!">
+          <div class="jumbotron">Now you can see how your model fares by inputting text and selecting predict to see if it guesses the correct label! The more samples used, the better the prediction!</div>
         </div>
       </div>
       <div class="modal-footer">
@@ -60,7 +72,10 @@
   <div class="card-columns">
     {% for classifier in classifiers %}
       <div class="card">
-        <button type="button" class="btn btn-danger btn-sm">X</button>
+        <form action="" method="post">
+          {% csrf_token %}
+          <button type="submit" id="delete-button" class="btn btn-danger btn-sm pull-xs-right" name="delete-classifier" value="{{ classifier.id }}">X</button>
+        </form>
         <div class="card-block">
                   <div class="text-xs-center">
                     <div class="btn-group btn-group-xs">

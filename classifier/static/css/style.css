@@ -261,3 +261,8 @@ Just trying it out. Let me know your thoughts */
 .breadcrumb li a:hover:after { border-left-color: hsla(210,50%,25%,1) !important; }
 
 /* End of breadcrumb experiment */
+
+#delete-button {
+  margin-top: -10px;
+  margin-right: -10px;
+}
