@@ -266,3 +266,9 @@ Just trying it out. Let me know your thoughts */
   margin-top: -10px;
   margin-right: -10px;
 }
+
+#help {
+  list-style-type: none;
+  margin-top: 5px;
+  margin-left: -35px;
+}
