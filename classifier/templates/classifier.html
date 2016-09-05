@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 <head>
   <title>
     {% block title %}Classifier {% endblock %}
@@ -30,6 +30,7 @@
       </div>
       <div class="modal-body">
         <div class="row hidden-xs-up" data-step="1" data-title="Create your classifier!">
+          <img src="{% static 'img/step-1.png' %}" />
           <div class="jumbotron">The first step to get started is to create a classifier.</div>
         </div>
         <div class="row hidden-xs-up" data-step="2" data-title="View your classifier!">
