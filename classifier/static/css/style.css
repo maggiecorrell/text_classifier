@@ -262,3 +262,13 @@ Just trying it out. Let me know your thoughts */
   margin-top: 5px;
   margin-left: -35px;
 }
+
+.modal-body {
+  height: 70vh;
+  background-color: #eef;
+}
+
+.shrink-image {
+  width: 80%;
+  height: auto;
+}

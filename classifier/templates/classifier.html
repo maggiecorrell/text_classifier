@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 <head>
     <title>
         {% block title %}Classifier {% endblock %}
@@ -22,44 +22,44 @@
                         <li><button type="button" class="btn btn-primary btn-link" data-toggle="modal" data-target="#myModal">
     Need Help?
   </button></li>
-
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="js-title-step"></h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row hidden-xs-up" data-step="1" data-title="Create your classifier!">
-                                            <div class="jumbotron">The first step to get started is to create a classifier.</div>
-                                        </div>
-                                        <div class="row hidden-xs-up" data-step="2" data-title="View your classifier!">
-                                            <div class="jumbotron">Then click on Category to be taken to the Category page.</div>
-                                        </div>
-                                        <div class="row hidden-xs-up" data-step="3" data-title="Add categories!">
-                                            <div class="jumbotron">Here you can add your categories as desired. When finished, click on Text Input at the top</div>
-                                        </div>
-                                        <div class="row hidden-xs-up" data-step="4" data-title="Feed data!">
-                                            <div class="jumbotron">Now simply add input text and select a category and click submit to begin feeding your classifier data</div>
-                                        </div>
-                                        <div class="row hidden-xs-up" data-step="5" data-title="Or import data!">
-                                            <div class="jumbotron">You can also upload a CSV file with your desired input data. See the example layout for details.</div>
-                                        </div>
-                                        <div class="row hidden-xs-up" data-step="6" data-title="Train your classifier!">
-                                            <div class="jumbotron">When finished, click Train to begin training your classifier model!</div>
-                                        </div>
-                                        <div class="row hidden-xs-up" data-step="7" data-title="Predict results!">
-                                            <div class="jumbotron">Now you can see how your model fares by inputting text and selecting predict to see if it guesses the correct label! The more samples used, the better the prediction!</div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default js-btn-step pull-xs-left" data-orientation="cancel" data-dismiss="modal"></button>
-                                        <button type="button" class="btn btn-warning js-btn-step" data-orientation="previous"></button>
-                                        <button type="button" class="btn btn-success js-btn-step" data-orientation="next"></button>
-                                    </div>
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h4 class="js-title-step"></h4>
+                              </div>
+                              <div class="modal-body">
+                                <div class="row hidden-xs-up" data-step="1" data-title="Create your classifier!">
+                                  <div class="jumbotron"><img src="{% static 'img/step-1.png' %}" /><p>The first step to get started is to create a classifier.</p></div>
                                 </div>
+                                <div class="row hidden-xs-up" data-step="2" data-title="View your classifier!">
+                                  <div class="jumbotron"><img src="{% static 'img/step-2.png' %}" /><p>Then click on Category to be taken to the Category page.</p></div>
+                                </div>
+                                <div class="row hidden-xs-up" data-step="3" data-title="Add categories!">
+                                  <div class="jumbotron"><img src="{% static 'img/step-3.png' %}" /><p>Here you can add your categories as desired. When finished, click on Text Input at the top</p></div>
+                                </div>
+                                <div class="row hidden-xs-up" data-step="4" data-title="Feed data!">
+                                  <div class="jumbotron"><img src="{% static 'img/step-4.png' %}" class="shrink-image"/><p>Now simply add input text and select a category and click submit to begin feeding your classifier data</p></div>
+                                </div>
+                                <div class="row hidden-xs-up" data-step="5" data-title="Or import data!">
+                                  <div class="jumbotron"><img src="{% static 'img/step-5.png' %}" /><p>You can also upload a CSV file with your desired input data. See the example layout for details.</p></div>
+                                </div>
+                                <div class="row hidden-xs-up" data-step="6" data-title="Train your classifier!">
+                                  <div class="jumbotron"><img src="{% static 'img/step-6.png' %}" /><p>When finished, click Train to begin training your classifier model!</p></div>
+                                </div>
+                                <div class="row hidden-xs-up" data-step="7" data-title="Predict results!">
+                                  <div class="jumbotron"><img src="{% static 'img/step-7.png' %}" class="shrink-image" /><p>Now you can see how your model fares by inputting text and selecting predict to see if it guesses the correct label! The more samples used, the better the prediction!</p></div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default js-btn-step pull-xs-left" data-orientation="cancel" data-dismiss="modal"></button>
+                                <button type="button" class="btn btn-warning js-btn-step" data-orientation="previous"></button>
+                                <button type="button" class="btn btn-success js-btn-step" data-orientation="next"></button>
+                              </div>
                             </div>
+                          </div>
                         </div>
+>>>>>>> 794f62af2b5adb2b324a53a79f8f1796eab21102
 
 
 
