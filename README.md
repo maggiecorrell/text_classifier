@@ -1,6 +1,6 @@
 # Peak Classifier
 
-Bringing language classification to the user.
+Bringing language classification to the user. We use a Naive Bayes classifier as a base and allow users to feed their own input data and build their own text classifiers as needed.
 
 ## Installation
 
